@@ -9,15 +9,18 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
+  <!-- servlet,servlet-mapping -> 쌍 -->
   <servlet>
-  	<servlet-name>ProjectFrontController</servlet-name>
-  	<servlet-class>net.Project.action.ProjectFrontController</servlet-class>
+  	<servlet-name>ProjectFrontController</servlet-name><!-- 이쪽으로 -->
+  	<servlet-class>net.Project.action.ProjectFrontController</servlet-class><!-- 응답을 한다. -->
   </servlet>
   
   <servlet-mapping>
-  	<servlet-name>ProjectFrontController</servlet-name>
-  	<url-pattern>*.do</url-pattern>
+  	<servlet-name>ProjectFrontController</servlet-name><!-- 이름이 같은것을 확인하여 -->
+  	<url-pattern>*.do</url-pattern><!-- 요청시 -->
+	<!-- 가상의 주소를 계속 만들게 될 경우 비효율적이기 때문에 
+	     web.xml에서 <url-pattern>/main.do</url-pattern>
+	  	 을 주소값으로 주지 않고 확장자 명으로 제어를 할 수 있다. -->
   </servlet-mapping>
   
 </web-app>

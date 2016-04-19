@@ -1,8 +1,8 @@
 package net.Project.action;
 
+//이동정보
 public class ActionForward {
-	
-	private boolean isRedirect;
+	private boolean isRedirect; // false: forward / true: sendRedirect
 	private String path;
 	
 	public boolean isRedirect() {
@@ -17,7 +17,4 @@ public class ActionForward {
 	public void setPath(String path) {
 		this.path = path;
 	}
-	
-	
-	
 }
