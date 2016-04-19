@@ -5,9 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="./css/common.css">
-<link rel="stylesheet" href="./css/incl.css">
-<link rel="stylesheet" href ="./css/main.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/incl.css">
+<link rel="stylesheet" href="../css/main.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:600" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -20,7 +20,7 @@
 		<div class = "sliderWrap">
 			<div >
 				<ul>
-					<li><a><img src="./img/main/03.jpg"></a></li>
+					<li><a><img src="../img/main/03.jpg"></a></li>
 				</ul>
 			</div>
 		</div>
@@ -30,13 +30,13 @@
 				<div class="title1" id = "eventTitle">EVENT OF THIS MONTH</div>
 				<div>
 					<!-- 이미지 450*210 -->
-					<img width = "450" src = "./img/main/mainTitle1.jpg">
+					<img width = "450" src = "../img/main/mainTitle1.jpg">
 				</div>
 			</div>
 			
 			<div id = "snsBox">
 				<div class="title1" id="snsTitle">SNS BOX</div>
-				<div><img width = "350" src = "./img/main/mainSNS.jpg"></div>
+				<div><img width = "350" src = "../img/main/mainSNS.jpg"></div>
 			</div>
 			
 			<div id = "noticeBox">
