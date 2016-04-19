@@ -21,7 +21,7 @@
 						<fieldset>
 							<legend>검색</legend>
 							<input type="text">
-							<img src = "../img/main/search.gif" >
+							<img src = "./img/main/search.gif" >
 						</fieldset>
 					</div>
 				</form>
@@ -33,7 +33,7 @@
 	<!-- 중단 로고 영역 -->
 	<div id = "header2">
 		<div>
-		<a href = "#"><img src = "../img/main/logo2.gif"></a>
+		<a href = "#"><img src = "./img/main/logo2.gif"></a>
 		</div>
 	</div>
 	<!-- 중단 로고 영역 끝 -->
