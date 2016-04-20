@@ -30,7 +30,7 @@ public class ProjectFrontController extends HttpServlet {
 		System.out.println("ContextPath : "+contextPath);
 		
 		/** 가상주소에서 프로젝트명의 길이많큼 빼줌 **/
-		String command = requestURI.substring(requestURI.length());
+		String command = requestURI.substring(contextPath.length());
 		System.out.println("command : " + command);
 		//System.out.println("가상주소 : "+ command);
 		
@@ -46,7 +46,7 @@ public class ProjectFrontController extends HttpServlet {
 			// main.do를 요청할 경우
 			forward = new ActionForward();
 			// 새로운 ActionForward()객체를 생성함
-			forward.setPath("./main/main.jsp");
+			forward.setPath("/main/main.jsp");
 			// ./main/main.jsp로 이동해야 함, 
 			forward.setRedirect(false);
 			// 리다이렉트를 안하겠다 false. 포워드 방식을 쓰겠다는 뜻
