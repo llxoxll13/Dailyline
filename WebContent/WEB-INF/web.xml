@@ -9,6 +9,8 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <!-- main.jsp -->
   <!-- servlet,servlet-mapping -> 쌍 -->
   <servlet>
   	<servlet-name>ProjectFrontController</servlet-name><!-- 이쪽으로 -->
@@ -22,5 +24,16 @@
 	     web.xml에서 <url-pattern>/main.do</url-pattern>
 	  	 을 주소값으로 주지 않고 확장자 명으로 제어를 할 수 있다. -->
   </servlet-mapping>
+  
+  <!-- member/login.jsp -->
+  <servlet>
+  	<servlet-name></servlet-name>
+  	<servlet-class></servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name></servlet-name>
+  	<url-pattern></url-pattern>
+  </servlet-mapping>
+  
   
 </web-app>
