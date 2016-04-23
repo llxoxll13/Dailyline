@@ -8,104 +8,134 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//@WebServlet("*.do") //ÄÄÆÄÀÏ·¯¸¦ À§ÇÑ ÁÖ¼®! @
+import net.Project.admin.goods.action.GoodsListAction;
+
+//@WebServlet("*.do") //ì»´íŒŒì¼ëŸ¬ë¥¼ ìœ„í•œ ì£¼ì„! @
 public class ProjectFrontController extends HttpServlet {
 		
-	// ½ÇÇàÀ» ÇÏ·Á¸é ProjectFrontController¸¦ ¿äÃ»ÇÏ´Â ÆäÀÌÁö°¡ ÀÖ¾î¾ß ÇÑ´Ù. ºä!! À¥ÄÁÅÙÆ®ÂÊ¿¡..
-	// getÀÎÁö postÀÎÁö ¸ğ¸£¹Ç·Î µÑ´Ù ¿À¹ö¶óÀÌµù ½ÃÄÑÁØ´Ù alt+shift+s+v
-	// ¸ğµç .do·Î ³¡³ª´Â ¿äÃ»ÆÄÀÏÀº ÀÌÂÊÀ¸·Î ¿Â´Ù
+	// ì‹¤í–‰ì„ í•˜ë ¤ë©´ ProjectFrontControllerë¥¼ ìš”ì²­í•˜ëŠ” í˜ì´ì§€ê°€ ìˆì–´ì•¼ í•œë‹¤. ë·°!! ì›¹ì»¨í…íŠ¸ìª½ì—..
+	// getì¸ì§€ postì¸ì§€ ëª¨ë¥´ë¯€ë¡œ ë‘˜ë‹¤ ì˜¤ë²„ë¼ì´ë”© ì‹œì¼œì¤€ë‹¤ alt+shift+s+v
+	// ëª¨ë“  .doë¡œ ëë‚˜ëŠ” ìš”ì²­íŒŒì¼ì€ ì´ìª½ìœ¼ë¡œ ì˜¨ë‹¤
 		
-	/** ³»ºÎÀûÀ¸·Î È£ÃâµÈ´Ù //get,post µÑ´Ù È£ÃâÇÒ¶§ doProsess·Î **/
+	/** ë‚´ë¶€ì ìœ¼ë¡œ í˜¸ì¶œëœë‹¤ //get,post ë‘˜ë‹¤ í˜¸ì¶œí• ë•Œ doProsessë¡œ **/
 	private void doProcess(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
-		System.out.println("doProcess() ¸Ş¼Òµå È£Ãâ");
+		System.out.println("doProcess() ë©”ì†Œë“œ í˜¸ì¶œ");
 		//http://localhost:8080/Dailyline/main.do
 		
-		/** °¡»óÁÖ¼Ò °¡Á®¿À±â **/
+		/** ê°€ìƒì£¼ì†Œ ê°€ì ¸ì˜¤ê¸° **/
 		String requestURI = request.getRequestURI();
 		System.out.println("URI address : "+requestURI);
 		
-		/** ÇÁ·ÎÁ§Æ® ¸íÀ» °¡Áö°í ¿À´Â ¸Ş¼Òµå°¡ ÀÖ´Ù. **/
+		/** í”„ë¡œì íŠ¸ ëª…ì„ ê°€ì§€ê³  ì˜¤ëŠ” ë©”ì†Œë“œê°€ ìˆë‹¤. **/
 		String contextPath = request.getContextPath();
 		System.out.println("ContextPath : "+contextPath);
 		
-		/** °¡»óÁÖ¼Ò¿¡¼­ ÇÁ·ÎÁ§Æ®¸íÀÇ ±æÀÌ¸¹Å­ »©ÁÜ **/
+		/** ê°€ìƒì£¼ì†Œì—ì„œ í”„ë¡œì íŠ¸ëª…ì˜ ê¸¸ì´ë§í¼ ë¹¼ì¤Œ **/
 		String command = requestURI.substring(contextPath.length());
 		System.out.println("command : " + command);
-		//System.out.println("°¡»óÁÖ¼Ò : "+ command);
+		//System.out.println("ê°€ìƒì£¼ì†Œ : "+ command);
 		
-		/** ÂüÁ¶º¯¼ö »ı¼º **/
+		/** ì°¸ì¡°ë³€ìˆ˜ ìƒì„± **/
 		ActionForward forward = null;
-		//ÀÌµ¿Á¤º¸ [¸¦ ´Ù·ç´Â Áö¿ªº¯¼ö ´Â ÃÊ±âÈ­¸¦ ÇØÁÖ´Â°Ô ÁÁÀ½ ±×·¡¼­ = nullÀ» ½á¼­ ÃÊ±âÈ­]
+		//ì´ë™ì •ë³´ [ë¥¼ ë‹¤ë£¨ëŠ” ì§€ì—­ë³€ìˆ˜ ëŠ” ì´ˆê¸°í™”ë¥¼ í•´ì£¼ëŠ”ê²Œ ì¢‹ìŒ ê·¸ë˜ì„œ = nullì„ ì¨ì„œ ì´ˆê¸°í™”]
 		Action action = null;
-		//´ÙÇü¼ºÀ» ÀÌ¿ëÇÑ ±â´É¿ä¼Ò Á¢±Ù //ÀÎÅÍÆäÀÌ½º¸¦ ¾×¼ÇÅ¸ÀÔ ÀÎÅÍÆäÀÌ½º·Î
+		//ë‹¤í˜•ì„±ì„ ì´ìš©í•œ ê¸°ëŠ¥ìš”ì†Œ ì ‘ê·¼ //ì¸í„°í˜ì´ìŠ¤ë¥¼ ì•¡ì…˜íƒ€ì… ì¸í„°í˜ì´ìŠ¤ë¡œ
+//		http://localhost:8080/line/main.do
+//		requestURI : /line/main.do
+//		contextPath : /line
+//		command : /main.do
+//
+//		http://localhost:8080/line/admin/main.do
+//		requestURI : /line/admin/main.do
+//		contextPath : /line
+//		command : /admin/main.do
+//
+//		http://localhost:8080/line/admin/member/main.do
+//		requestURI : /line/admin/member/main.do
+//		contextPath : /line
+//		command : /admin/member/main.do		
 		
-		
-		/** °øÅë ¸â¹ö **/
+		/** ê³µí†µ ë©¤ë²„ **/
 		if(command.equals("/main.do")){
-			// main.do¸¦ ¿äÃ»ÇÒ °æ¿ì
+			// main.doë¥¼ ìš”ì²­í•  ê²½ìš°
 			forward = new ActionForward();
-			// »õ·Î¿î ActionForward()°´Ã¼¸¦ »ı¼ºÇÔ
+			// ìƒˆë¡œìš´ ActionForward()ê°ì²´ë¥¼ ìƒì„±í•¨
 			forward.setPath("/main/main.jsp");
-			// ./main/main.jsp·Î ÀÌµ¿ÇØ¾ß ÇÔ, 
+			// ./main/main.jspë¡œ ì´ë™í•´ì•¼ í•¨, 
 			forward.setRedirect(false);
-			// ¸®´ÙÀÌ·ºÆ®¸¦ ¾ÈÇÏ°Ú´Ù false. Æ÷¿öµå ¹æ½ÄÀ» ¾²°Ú´Ù´Â ¶æ
+			// ë¦¬ë‹¤ì´ë ‰íŠ¸ë¥¼ ì•ˆí•˜ê² ë‹¤ false. í¬ì›Œë“œ ë°©ì‹ì„ ì“°ê² ë‹¤ëŠ” ëœ»
 		}
+		// æ„¿ï¿½â”ï¿½ï¿½- ï§ë¶¿ì”¤
+			else if(command.equals("/admin/main.do")){
+				forward = new ActionForward();
+				forward.setPath("/admin/main.jsp");
+				forward.setRedirect(false);
+			}
+			else if(command.equals("/admin/goods/list.do")){
+				action = new GoodsListAction();
+				
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
 		
-		/** ActionForward ±¸µ¿ ½ÃÁ¡ **/
-		// ¸ğµç Ã³¸®°á°ú ¿Ü¿¡ ¿øÇÏ´Â ÆäÀÌÁö·Î ÀÌµ¿ÇØ¾ß ÇÏ±â ¶§¹®¿¡ ²À ÇÊ¿ä.
-		// ÀÌµ¿
-		if (forward != null) {//forward°¡ ¾øÀ»°æ¿ì³ª »ç¿ëÀÚ°¡ ²°À»¶§¸¦ ´ëºñ
-			// 1.°¡»óÀÇ ÁÖ¼Ò(.do µî)·Î º¸³¾¶§´Â ¸®´ÙÀÌ·ºÆ® »ç¿ë
-			//   ÁÖ¼ÒÇ¥½ÃÁÙÀÇ ÁÖ¼Ò°¡ ¹Ù²ñ
-			// 2.±¸Ã¼ÀûÀÎ ÁÖ¼Ò(½ÇÁ¦ À¥ ÀÚ¿ø .jsp µî)·Î º¸³¾¶§ Æ÷¿öµå »ç¿ë
-			//   ÁÖ¼ÒÇ¥½ÃÁÙÀÇ ÁÖ¼Ò°¡ ¹Ù²îÁö ¾ÊÀ½.
+		/** ActionForward êµ¬ë™ ì‹œì  **/
+		// ëª¨ë“  ì²˜ë¦¬ê²°ê³¼ ì™¸ì— ì›í•˜ëŠ” í˜ì´ì§€ë¡œ ì´ë™í•´ì•¼ í•˜ê¸° ë•Œë¬¸ì— ê¼­ í•„ìš”.
+		// ì´ë™
+		if (forward != null) {//forwardê°€ ì—†ì„ê²½ìš°ë‚˜ ì‚¬ìš©ìê°€ ê»ì„ë•Œë¥¼ ëŒ€ë¹„
+			// 1.ê°€ìƒì˜ ì£¼ì†Œ(.do ë“±)ë¡œ ë³´ë‚¼ë•ŒëŠ” ë¦¬ë‹¤ì´ë ‰íŠ¸ ì‚¬ìš©
+			//   ì£¼ì†Œí‘œì‹œì¤„ì˜ ì£¼ì†Œê°€ ë°”ë€œ
+			// 2.êµ¬ì²´ì ì¸ ì£¼ì†Œ(ì‹¤ì œ ì›¹ ìì› .jsp ë“±)ë¡œ ë³´ë‚¼ë•Œ í¬ì›Œë“œ ì‚¬ìš©
+			//   ì£¼ì†Œí‘œì‹œì¤„ì˜ ì£¼ì†Œê°€ ë°”ë€Œì§€ ì•ŠìŒ.
 			
-			if (forward.isRedirect()) {//true : ¸®´ÙÀÌ·ºÆ® //¸®´ÙÀÌ·ºÆ®ÀÏ °æ¿ì¿¡´Â!
-				response.sendRedirect(forward.getPath());//Æ÷¿öµå ¹æ½ÄÀÇ ¼³Á¤ÇÑ Path°æ·Î·Î ÀÌµ¿
-			} else {//false : Æ÷¿öµå //¸®´ÙÀÌ·ºÆ®°¡ ¾Æ´Ò °æ¿ì¿¡´Â!
+			if (forward.isRedirect()) {//true : ë¦¬ë‹¤ì´ë ‰íŠ¸ //ë¦¬ë‹¤ì´ë ‰íŠ¸ì¼ ê²½ìš°ì—ëŠ”!
+				response.sendRedirect(forward.getPath());//í¬ì›Œë“œ ë°©ì‹ì˜ ì„¤ì •í•œ Pathê²½ë¡œë¡œ ì´ë™
+			} else {//false : í¬ì›Œë“œ //ë¦¬ë‹¤ì´ë ‰íŠ¸ê°€ ì•„ë‹ ê²½ìš°ì—ëŠ”!
 				RequestDispatcher dispacher = request.getRequestDispatcher(forward.getPath());
-				//ÀÌµ¿ÇÒ Á¤º¸. // ÇöÀç À¥ÇÁ·ÎÁ§Æ®°¡ °¡Áö°í ÀÖ´Â ÀÚ¿ø¸¸ ³»ºÎÀûÀ¸·Î ¼­¹ö°¡ ¾Ë¾Æ¼­ ÀÌµ¿..?
+				//ì´ë™í•  ì •ë³´. // í˜„ì¬ ì›¹í”„ë¡œì íŠ¸ê°€ ê°€ì§€ê³  ìˆëŠ” ìì›ë§Œ ë‚´ë¶€ì ìœ¼ë¡œ ì„œë²„ê°€ ì•Œì•„ì„œ ì´ë™..?
 				dispacher.forward(request, response);
 			}
 		}
 	}
 	
-	/** ¸ğµç get **/
+	/** ëª¨ë“  get **/
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		System.out.println("get ¹æ½Ä");
+		System.out.println("get ë°©ì‹");
 		doProcess(request, response);
 	}
 
-	/** ¸ğµç post **/
+	/** ëª¨ë“  post **/
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		System.out.println("post ¹æ½Ä");
+		System.out.println("post ë°©ì‹");
 		doProcess(request, response);
 	}
 	
-	/** ¸®´ÙÀÌ·ºÆ®¹æ½Ä **/
-	// : Å¬¶óÀÌ¾ğÆ®¿¡°Ô °¡»óÀÇ ÁÖ¼Ò¸¦ ¿äÃ»ÇÏ°Ô ¸¸µé¶§
+	/** ë¦¬ë‹¤ì´ë ‰íŠ¸ë°©ì‹ **/
+	// : í´ë¼ì´ì–¸íŠ¸ì—ê²Œ ê°€ìƒì˜ ì£¼ì†Œë¥¼ ìš”ì²­í•˜ê²Œ ë§Œë“¤ë•Œ
 	// response.sendRedirect("./main/main.jsp");
-	// sendRedirect´Â Å¬¶óÀÌ¾ğÆ®°¡ ´Ù½Ã ¿äÃ»ÇÏµµ·Ï ÀÛÀº ÂÊÁö¸¦ º¸³½´Ù..
-	// ¿äÃ»ÇÏ´Â½ÃÁ¡¿¡ ºê¶ó¿ìÀú°¡ °»½ÅµÈ´Ù. ¸ğµ¨2¿¡´Â ÀûÇÕÇÏÁö ¾ÊÀ½
+	// sendRedirectëŠ” í´ë¼ì´ì–¸íŠ¸ê°€ ë‹¤ì‹œ ìš”ì²­í•˜ë„ë¡ ì‘ì€ ìª½ì§€ë¥¼ ë³´ë‚¸ë‹¤..
+	// ìš”ì²­í•˜ëŠ”ì‹œì ì— ë¸Œë¼ìš°ì €ê°€ ê°±ì‹ ëœë‹¤. ëª¨ë¸2ì—ëŠ” ì í•©í•˜ì§€ ì•ŠìŒ
 
-	/** Æ÷¿öµå ¹æ½Ä **/
-	// : Å¬¶óÀÌ¾ğÆ®ÀÇ °¡»óÁÖ¼Ò ¿äÃ»¿¡ ´ëÇØ¼­ ½ÇÁ¦ À¥ÀÚ¿øÀ» ÀÀ´äÀ¸·Î ÁÙ¶§
-	// dispatcherÂüÁ¶º¯¼ö·Î ¹Ş±â
+	/** í¬ì›Œë“œ ë°©ì‹ **/
+	// : í´ë¼ì´ì–¸íŠ¸ì˜ ê°€ìƒì£¼ì†Œ ìš”ì²­ì— ëŒ€í•´ì„œ ì‹¤ì œ ì›¹ìì›ì„ ì‘ë‹µìœ¼ë¡œ ì¤„ë•Œ
+	// dispatcherì°¸ì¡°ë³€ìˆ˜ë¡œ ë°›ê¸°
 	// RequestDispatcher dispatcher =
 	// request.getRequestDispatcher("./main/main.jsp");
 	// dispatcher.forward(request, response);
-	// forward(¸®Äù½ºÆ®,¸®½ºÆù½º);¸¦ ¹Ş´Â´Ù À§¿¡ ¿ì¸®°¡ ¹Ş¾Æ¿Â °ÍÀ» °í½º¶õÈ÷ ´Ù¾çÇÑ Á¤º¸¸¦ ±×´ë·Î ¾µ ¼ö ÀÖ´Ù
-	// ´Ù½Ã ¿äÃ»ÇÏ´Â ¸®´ÙÀÌ·ºÆ®°¡ ¾Æ´Ï¶ó ÇÑ¹øÀÇ ¿äÃ»À» ÀÀ´äÀ¸·Î ¹Ş¾Æ¿À±â ¶§¹®¿¡ ÁÖ¼ÒÇ¥½ÃÁÙ¿¡ main.do¶ó´Â
-	// °¡»óÀÇ ÁÖ¼Ò°¡ µé¾î°£´Ù
+	// forward(ë¦¬í€˜ìŠ¤íŠ¸,ë¦¬ìŠ¤í°ìŠ¤);ë¥¼ ë°›ëŠ”ë‹¤ ìœ„ì— ìš°ë¦¬ê°€ ë°›ì•„ì˜¨ ê²ƒì„ ê³ ìŠ¤ë€íˆ ë‹¤ì–‘í•œ ì •ë³´ë¥¼ ê·¸ëŒ€ë¡œ ì“¸ ìˆ˜ ìˆë‹¤
+	// ë‹¤ì‹œ ìš”ì²­í•˜ëŠ” ë¦¬ë‹¤ì´ë ‰íŠ¸ê°€ ì•„ë‹ˆë¼ í•œë²ˆì˜ ìš”ì²­ì„ ì‘ë‹µìœ¼ë¡œ ë°›ì•„ì˜¤ê¸° ë•Œë¬¸ì— ì£¼ì†Œí‘œì‹œì¤„ì— main.doë¼ëŠ”
+	// ê°€ìƒì˜ ì£¼ì†Œê°€ ë“¤ì–´ê°„ë‹¤
 
-	// ¿äÃ»ÇÏ´Â ÁÖ¼Ò°¡ ±¸Ã¼ÀûÀÏ°æ¿ì Æ÷¿öµå ¹æ½ÄÀ» »ç¿ë,
-	// main.do¿¡¼­ ¸ŞÀÎÀ¸·Î °¬À»¶§µµ °°Àº °¡»óÀÇ ÁÖ¼Ò¸¦ »ç¿ëÇÒ ¼ö ¾ø±â ¶§¹®¿¡ ÁÖ¼ÒÇ¥½ÃÁÙµµ °°ÀÌ °»½ÅÇØÁà¾ß
-	// ÇÏ±â¶§¹®¿¡ ±×·²°æ¿ì
-	// ¸®´ÙÀÌ·ºÆ® ¹æ½ÄÀ» »ç¿ëÇÏ°Ô µÈ´Ù.
+	// ìš”ì²­í•˜ëŠ” ì£¼ì†Œê°€ êµ¬ì²´ì ì¼ê²½ìš° í¬ì›Œë“œ ë°©ì‹ì„ ì‚¬ìš©,
+	// main.doì—ì„œ ë©”ì¸ìœ¼ë¡œ ê°”ì„ë•Œë„ ê°™ì€ ê°€ìƒì˜ ì£¼ì†Œë¥¼ ì‚¬ìš©í•  ìˆ˜ ì—†ê¸° ë•Œë¬¸ì— ì£¼ì†Œí‘œì‹œì¤„ë„ ê°™ì´ ê°±ì‹ í•´ì¤˜ì•¼
+	// í•˜ê¸°ë•Œë¬¸ì— ê·¸ëŸ´ê²½ìš°
+	// ë¦¬ë‹¤ì´ë ‰íŠ¸ ë°©ì‹ì„ ì‚¬ìš©í•˜ê²Œ ëœë‹¤.
 	
 }
