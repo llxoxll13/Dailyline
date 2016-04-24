@@ -75,9 +75,9 @@
 
 	public class TryCatch {
 		public static void main(String[] args) throws StudyException {
-			StudyException sexception = new StudyException();
+			StudyException exception = new StudyException();
 			​sexception.getMessage(); // '예외상황 입니다' 출력
-			throw sexception;
+			throw exception;
 		}
 	}
 -->

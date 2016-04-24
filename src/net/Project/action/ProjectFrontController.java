@@ -21,6 +21,12 @@ public class ProjectFrontController extends HttpServlet {
 	private void doProcess(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
 		System.out.println("doProcess() 메소드 호출");
+		if(request==request){
+			System.out.println("request");
+		}else{
+			System.out.println("response");
+		}
+		
 		//http://localhost:8080/Dailyline/main.do
 		
 		/** 가상주소 가져오기 **/
@@ -36,7 +42,7 @@ public class ProjectFrontController extends HttpServlet {
 		System.out.println("command : " + command);
 		//System.out.println("가상주소 : "+ command);
 		
-		/** 참조변수 생성 **/
+		/** 이동정보 **/
 		ActionForward forward = null;
 		//이동정보 [를 다루는 지역변수 는 초기화를 해주는게 좋음 그래서 = null을 써서 초기화]
 		Action action = null;
@@ -56,7 +62,7 @@ public class ProjectFrontController extends HttpServlet {
 //		contextPath : /line
 //		command : /admin/member/main.do		
 		
-		/** 공통 멤버 **/
+		/** 가상주소비교 **/
 		if(command.equals("/main.do")){
 			// main.do를 요청할 경우
 			forward = new ActionForward();
