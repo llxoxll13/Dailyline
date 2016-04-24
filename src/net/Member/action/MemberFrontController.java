@@ -89,18 +89,18 @@ public class MemberFrontController extends HttpServlet{
 	// get인지 post인지 모르므로 둘다 오버라이딩 시켜준다 alt+shift+s+v
 	/** 모든 get **/
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doGet(req, resp);
+		System.out.println("get 방식(member)");
+		doProcess(request, response);
 	}
 	
 	/** 모든 post **/
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPost(req, resp);
+		System.out.println("post 방식(member )");
+		doProcess(request, response);
 	}
 
 	
