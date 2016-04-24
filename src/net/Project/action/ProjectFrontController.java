@@ -21,12 +21,6 @@ public class ProjectFrontController extends HttpServlet {
 	private void doProcess(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
 		System.out.println("doProcess() 메소드 호출");
-		if(request==request){
-			System.out.println("request");
-		}else{
-			System.out.println("response");
-		}
-		
 		//http://localhost:8080/Dailyline/main.do
 		
 		/** 가상주소 가져오기 **/

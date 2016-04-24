@@ -22,11 +22,7 @@ public class MemberFrontController extends HttpServlet{
 	private void doProcess(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException{
 		System.out.println("doProcess() 메소드 호출");
-		if(request==request){
-			System.out.println("request");
-		}else{
-			System.out.println("response");
-		}
+		
 		/** 가상주소 가져오기 **/
 		String requestURI = request.getRequestURI();
 		System.out.println("URI주소: " + requestURI);
@@ -56,7 +52,7 @@ public class MemberFrontController extends HttpServlet{
 		// command에 들어가있는 /memberjoin.me라는 주소값이 memberjoin.me와 같으면
 			forward=new ActionForward();
 			//새로운 ActionForward()객체를 생성
-			forward.setPath("/member/memberjoin.jsp");
+			forward.setPath("./member/memberjoin.jsp");
 			//ActionForward()클래스의 setPath()메소드의 값을 ./member/memberjoin.jsp로 보냄
 			forward.setRedirect(false);
 			//false:forward / true:sendRedirect
@@ -88,8 +84,6 @@ public class MemberFrontController extends HttpServlet{
 				dispacher.forward(request, response);
 			}
 		}
-		
-		
 	}
 	
 	// get인지 post인지 모르므로 둘다 오버라이딩 시켜준다 alt+shift+s+v

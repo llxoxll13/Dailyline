@@ -25,15 +25,15 @@
 	  	 을 주소값으로 주지 않고 확장자 명으로 제어를 할 수 있다. -->
   </servlet-mapping>
   
-  <!-- member/login.jsp 
+  <!-- member/memberjoin.jsp -->
   <servlet>
-  	<servlet-name></servlet-name>
-  	<servlet-class></servlet-class>
+  	<servlet-name>MemberFrontController</servlet-name>
+  	<servlet-class>net.Member.action.MemberFrontController</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name></servlet-name>
-  	<url-pattern></url-pattern>
+  	<servlet-name>MemberFrontController</servlet-name>
+  	<url-pattern>*.me</url-pattern>
   </servlet-mapping>
-  -->
+ 
   
 </web-app>
