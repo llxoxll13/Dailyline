@@ -25,7 +25,7 @@
 	  	 을 주소값으로 주지 않고 확장자 명으로 제어를 할 수 있다. -->
   </servlet-mapping>
   
-  <!-- member/memberjoin.jsp -->
+  <!-- member -->
   <servlet>
   	<servlet-name>MemberFrontController</servlet-name>
   	<servlet-class>net.Member.action.MemberFrontController</servlet-class>

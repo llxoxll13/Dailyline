@@ -33,7 +33,7 @@ public class MemberFrontController extends HttpServlet{
 		System.out.println("contextPath : " + contextPath);
 		//doProcess로 받아온 request내용의 ContextPath주소(즉 프로젝트명) /Dailyline
 		
-		/** 가상주소에서 프로젝트명의 길이많큼 빼줌 **/
+		/** 가상주소에서 프로젝트명의 길이만큼 빼줌 **/
 		String command = requestURI.substring(contextPath.length());
 		System.out.println("가상주소: " + command);
 		//정의해놓은 requestURI주소(/Dailyline/memberlogin.me)에서 
@@ -63,7 +63,15 @@ public class MemberFrontController extends HttpServlet{
 			 			    주소창에는 B.jsp로 찍혀있음(C.jsp의 내용이 서버의 내부적으로 실행됨)
 				redirect : C.jsp에서는 A.jsp가 B.jsp에게 보내준 파라미터를 사용할수 없음  
 						   주소창에는 C.jsp로 찍혀있음(C.jsp의 내용이 브라우저 상에서 실행됨) **/
+		} else if(command.equals("/login.me")){
+			// ./member/login.jsp
+			forward=new ActionForward();
+			forward.setPath("./member/login.jsp");
+			forward.setRedirect(false);
 		}
+		
+		
+		
 		
 		/** ActionForward 구동 시점 **/
 		// 모든 처리결과(가상수조비교)외에 원하는 페이지로 이동해야 하기 때문에 꼭 필요.

@@ -9,8 +9,8 @@
 <link rel="stylesheet" href="./css/main.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:600" rel="stylesheet" type="text/css">
 <style type="text/css">
-#mainWrap{margin-top: 40px; margin-bottom: 50px; /* border: 1px solid blue; */}
-.sliderWrap{height: 100%; margin: 0px; /* border: 1px solid red; */}
+#mainWrap{margin-top: 40px; margin-bottom: 0px; /* border: 1px solid blue; */}
+.sliderWrap{height: 100%; margin: 0px; border: none; /* border: 1px solid red; */}
 body{font: 8px "Segoe UI", "Lato", Corbel, arial, Verdana, 돋움, Dotum, 나눔고딕, NanumGothic, "맑은 고딕", "Malgun Gothic", AppleGothic, Helvetica, sans-serif}
 caption{width:0px; height:0px; display:none; visibility: hidden;}
 table{width: 100%; font-size: 11px; border-spacing: none; border-collapse: collapse;}
@@ -18,7 +18,7 @@ input, select, textarea{font-family: "돋움",Dotum; font-size: 11px; vertical-a
 img{border: none; vertical-align: middle;}
 
 /* >titleArea */
-.titleArea{width: 150px; height: 32px; margin: 0 auto; text-align: center; line-height: 28px; color: #000;
+.titleArea{width: 150px; height: 32px; margin: 0 auto; text-align: center; line-height: 31px; color: #000;
 	border: 1px solid #eaeaea; border-bottom: 2px solid #eaeaea;}
 .titleArea span{font-family: "Open Sans",sans-serif,arial; font-size: 11px; font-weight: normal;}
 /* <titleArea */
@@ -46,7 +46,7 @@ h3{font-size: 12px; margin-top: 50px; color: #000; padding: 0 0 10px 0;}
 /* <joinWrap */
 
 /* >joinWrap1 */
-.joinWrap1{font-size: 11px; text-align: left; font-weight: normal; vertical-align: middle; border: 1px solid #d7d5d5;}
+/* .joinWrap1{font-size: 11px; text-align: left; font-weight: normal; vertical-align: middle; border: 1px solid #d7d5d5;}
 .joinWrap1 table tr{width: 100%; border-top: 1px solid #e8e8e8;}
 .joinWrap1 table tr th{width: 130px; text-align: left; vertical-align: middle; font-weight: normal; 
 	padding: 10px 0 8px 20px; border-right: 1px solid #e8e8e8; background-color: #fbfafa;}
@@ -65,7 +65,7 @@ h3{font-size: 12px; margin-top: 50px; color: #000; padding: 0 0 10px 0;}
 .joinWrap1 table tr:nth-child(3) td input:nth-child(1){width: 60px; margin: 0 4px 0 0;}
 .joinWrap1 table tr:nth-child(3) td input:nth-child(2){width: 30px; margin: 0 4px 0 0;}
 .joinWrap1 table tr:nth-child(3) td input:nth-child(3){width: 30px; margin: 0 4px 0 0;}
-.joinWrap1 table tr:nth-child(4) td select{width: 200px; height: 24px; margin: 0 4px 0 0;}
+.joinWrap1 table tr:nth-child(4) td select{width: 200px; height: 24px; margin: 0 4px 0 0;} */
 /* <joinWrap1 */	 
 
 /* >joinWrap2 */
@@ -79,7 +79,7 @@ h3{font-size: 12px; margin-top: 50px; color: #000; padding: 0 0 10px 0;}
 
 /* >joinWrap3 */
 .joinWrap3{padding: 20px 20px 15px 20px; border: 1px solid #d7d5d5; color: #000; font-size: 11px; line-height: 20px; background: #fbfafa;}
-.agree{height: 110px; overflow: hidden; padding: 20px; border: 1px solid #e6e6e6; background: #fff;}
+.agree{height: 110px; overflow: auto; padding: 20px; border: 1px solid #e6e6e6; background: #fff;}
 .agree p{padding: 0 0 17px; color: #000; font-size: 11px; line-height: 20px;}
 /* <joinWrap3 */
 
@@ -262,8 +262,8 @@ http://localhost:8080/Dailyline/memberjoin.me
 		</div>
 		<!-- <joinWrap -->
 		
-		<h3>추가정보</h3>
-		<!-- >joinWrap1 -->
+		<!-- <h3>추가정보</h3>
+		>joinWrap1
 		<div class="joinWrap1">
 			<table>
 				<form>
@@ -326,7 +326,7 @@ http://localhost:8080/Dailyline/memberjoin.me
 				</form>
 			</table>
 		</div>
-		<!-- <joinWrap1 -->
+		<joinWrap1 -->
 		
 		<h3>이용약관동의</h3>
 		<!-- >joinWrap2 -->
