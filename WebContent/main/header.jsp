@@ -12,7 +12,7 @@
 				<c:choose>
 					<c:when test="${empty sessionScop.id }">
 						<li><a href ="#">LOGIN</a></li>
-						<li><a href ="./member/memberjoin.jsp">JOIN US</a></li>
+						<li><a href ="memberjoin.me">JOIN US</a></li>
 						<li><a href ="#">ORDER</a></li>
 					</c:when>
 					<c:otherwise>
@@ -29,7 +29,7 @@
 						<fieldset>
 							<legend>검색</legend>
 							<input type="text">
-							<img src = "./img/main/search.gif" >
+								<img src = "./img/main/search.gif" >
 						</fieldset>
 					</div>
 				</form>
@@ -41,7 +41,7 @@
 	<!-- 중단 로고 영역 -->
 	<div id = "header2">
 		<div>
-		<a href = "#"><img src = "./img/main/logo2.gif"></a>
+		<a href ="main.do"><img src = "./img/main/logo2.gif"></a>
 		</div>
 	</div>
 	<!-- 중단 로고 영역 끝 -->
