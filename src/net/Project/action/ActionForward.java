@@ -1,6 +1,6 @@
 package net.Project.action;
 
-//ÀÌµ¿Á¤º¸
+//ì´ë™ì •ë³´
 public class ActionForward {
 	private boolean isRedirect; // false: forward / true: sendRedirect
 	private String path;

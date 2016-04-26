@@ -1,4 +1,4 @@
-package net.Member.action;
+package net.Member.action.copy안씀;
 
 // 01.member/memberjoin.jsp파일생성
 // 02.src/net.Member.action패키지생성/ActionForward.java클래스생성
