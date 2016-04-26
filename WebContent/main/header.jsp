@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="./css/common.css">
 <link rel="stylesheet" href="./css/incl.css">
 <link rel="stylesheet" href ="./css/main.css">
+<link rel="stylesheet" href="./css/member.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:600" rel="stylesheet" type="text/css">
 </head>
 <body>
