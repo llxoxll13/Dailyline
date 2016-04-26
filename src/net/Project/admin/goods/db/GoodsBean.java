@@ -2,6 +2,10 @@ package net.Project.admin.goods.db;
 
 import java.sql.Timestamp;
 
+/*
+01.[DB] META-INF/context.xml파일에 DB과련하여 수정
+02.[DB] Java Resources/src/net.Project.admin.goods.db/GoodsBean.java파일생성
+*/
 public class GoodsBean {
 	private int goodsNo;
 	private String goodsNm;

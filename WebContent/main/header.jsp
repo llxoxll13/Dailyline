@@ -21,7 +21,7 @@
 				<c:choose>
 					<c:when test="${empty sessionScop.id }">
 						<li><a href ="login.do">LOGIN</a></li>
-						<li><a href ="memberjoin.do">JOIN US</a></li>
+						<li><a href ="join.do">JOIN US</a></li>
 						<li><a href ="#">ORDER</a></li>
 					</c:when>
 					<c:otherwise>

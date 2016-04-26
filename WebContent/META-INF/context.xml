@@ -7,3 +7,4 @@
 			  username="getjob"
 			  password="getjob" />
 </Context> 
+<!-- 01.[DB] META-INF/context.xml파일에 DB과련하여 수정 -->

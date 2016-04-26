@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.Project.action.ActionForward;
 import net.Project.admin.goods.action.GoodsListAction;
-//01.member/memberjoin.jsp파일생성
+//01.member/join.jsp파일생성
 //02.src/net.Member.action패키지생성/ActionForward.java클래스생성
 //03.src/net.Member.action안에/Action.java인터페이스생성
 //04.src/net.Member.action안에/MemberFrontController.java클래스생성
@@ -57,12 +57,12 @@ public class ProjectFrontController extends HttpServlet {
 			forward.setPath("/main/main.jsp");
 			forward.setRedirect(false);
 			
-		} else if(command.equals("/memberjoin.do")){//=-:대상의주소값을비교 , .equals:대상의내용자체를비교
-		// command에 들어가있는 /memberjoin.me라는 주소값이 memberjoin.do와 같으면
+		} else if(command.equals("/join.do")){//=-:대상의주소값을비교 , .equals:대상의내용자체를비교
+		// command에 들어가있는 /memberjoin.me라는 주소값이 rjoin.do와 같으면
 			forward=new ActionForward();
 			//새로운 ActionForward()객체를 생성
-			forward.setPath("./member/memberjoin.jsp");
-			//ActionForward()클래스의 setPath()메소드의 값을 ./member/memberjoin.jsp로 보냄
+			forward.setPath("./member/join.jsp");
+			//ActionForward()클래스의 setPath()메소드의 값을 ./member/join.jsp로 보냄
 			forward.setRedirect(false);
 			//false:forward / true:sendRedirect
 			//ActionForward()클래스의 setRedirect()메소드값을 false로 보냄(즉 forward방식사용)

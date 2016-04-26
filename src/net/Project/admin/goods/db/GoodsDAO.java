@@ -10,7 +10,11 @@ import java.util.List;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
-
+/*
+01.[DB] META-INF/context.xml파일에 DB과련하여 수정
+02.[DB] Java Resources/src/net.Project.admin.goods.db/GoodsBean.java파일생성
+03.[DB] Java Resources/src/net.Project.admin.goods.db/GoodsDAO.java파일생성
+*/
 public class GoodsDAO {
 	// DB연결 메소드
 	private Connection getConnection() throws Exception {
