@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//WebContent/member/login.jsp=UTF-8
+encoding//WebContent/member/memberjoin.jsp=UTF-8
 encoding//WebContent/test/HttpServletRequest_HttpServletResponse=UTF-8
 encoding//src/net/Member/action/Action.java=UTF-8
 encoding//src/net/Project/action/ProjectFrontController.java=UTF-8

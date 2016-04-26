@@ -1,107 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>데일리라인 [Dailyline]</title>
-<link rel="stylesheet" href="./css/common.css">
-<link rel="stylesheet" href="./css/incl.css">
-<link rel="stylesheet" href="./css/main.css">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:600" rel="stylesheet" type="text/css">
-<style type="text/css">
-#mainWrap{margin-top: 40px; margin-bottom: 0px; /* border: 1px solid blue; */}
-.sliderWrap{height: 100%; margin: 0px; border: none; /* border: 1px solid red; */}
-body{font: 8px "Segoe UI", "Lato", Corbel, arial, Verdana, 돋움, Dotum, 나눔고딕, NanumGothic, "맑은 고딕", "Malgun Gothic", AppleGothic, Helvetica, sans-serif}
-caption{width:0px; height:0px; display:none; visibility: hidden;}
-table{width: 100%; font-size: 11px; border-spacing: none; border-collapse: collapse;}
-input, select, textarea{font-family: "돋움",Dotum; font-size: 11px; vertical-align: middle;}
-img{border: none; vertical-align: middle;}
-
-/* >titleArea */
-.titleArea{width: 150px; height: 32px; margin: 0 auto; text-align: center; line-height: 31px; color: #000;
-	border: 1px solid #eaeaea; border-bottom: 2px solid #eaeaea;}
-.titleArea span{font-family: "Open Sans",sans-serif,arial; font-size: 11px; font-weight: normal;}
-/* <titleArea */
-h3{font-size: 12px; margin-top: 50px; color: #000; padding: 0 0 10px 0;}
-
-/* >joinWrap */
-.joinWrap{font-size: 11px; text-align: left; font-weight: normal; vertical-align: middle; border: 1px solid #d7d5d5;}
-.joinWrap table tr{width: 100%; border-top: 1px solid #e8e8e8;}
-.joinWrap table tr th{width: 130px; text-align: left; vertical-align: middle; font-weight: normal; 
-	padding: 10px 0 8px 20px; border-right: 1px solid #e8e8e8; background-color: #fbfafa;}
-.joinWrap table tr td{padding: 10px 0 8px 10px;}
-.joinWrap table tr td input{height: 14px; padding: 4px; color: #000; border: 1px solid #d9d9d9;}
-.joinWrap table tr td select{height: 24px; font-size: 11px; margin: 0 4px 0 0;}
-.joinWrap table tr:nth-child(5) td input:nth-child(1){width: 40px; text-align: center;}
-.joinWrap table tr:nth-child(5) td input:nth-child(2){display: none;}
-.joinWrap table tr:nth-child(5) td input:nth-child(5){width: 280px; margin: 5px 2px 0 0;}
-.joinWrap table tr:nth-child(5) td input:nth-child(7){width: 280px; margin: 5px 2px 0 0;}
-.joinWrap table tr:nth-child(6) td select{width: 60px; margin: 0 4px 0 0;}
-.joinWrap table tr:nth-child(6) td input{width: 50px; margin: 0 4px;}
-.joinWrap table tr:nth-child(7) td select{width: 60px; margin: 0 4px 0 0;}
-.joinWrap table tr:nth-child(7) td input{width: 50px; margin: 0 4px;}
-.joinWrap table tr:nth-child(8) td input:nth-child(1){margin-right: 4px;}
-.joinWrap table tr:nth-child(8) td input:nth-child(2){margin: 0 4px;}
-.joinWrap table tr:nth-child(8) td select{height: 24px;}
-/* <joinWrap */
-
-/* >joinWrap1 */
-/* .joinWrap1{font-size: 11px; text-align: left; font-weight: normal; vertical-align: middle; border: 1px solid #d7d5d5;}
-.joinWrap1 table tr{width: 100%; border-top: 1px solid #e8e8e8;}
-.joinWrap1 table tr th{width: 130px; text-align: left; vertical-align: middle; font-weight: normal; 
-	padding: 10px 0 8px 20px; border-right: 1px solid #e8e8e8; background-color: #fbfafa;}
-.joinWrap1 table tr td{padding: 10px 0 8px 10px;}
-.joinWrap1 table tr td input{height: 14px; padding: 4px; color: #000; border: 1px solid #d9d9d9;}
-.joinWrap1 table tr:nth-child(1) td input:nth-child(1){width: 60px; margin: 0 4px 0 0;}
-.joinWrap1 table tr:nth-child(1) td input:nth-child(2){width: 30px; margin: 0 4px 0 0;}
-.joinWrap1 table tr:nth-child(1) td input:nth-child(3){width: 30px; margin: 0 4px 0 0;}
-.joinWrap1 table tr:nth-child(1) td span{margin: 0 0 0 16px; font-size: 11px;}
-.joinWrap1 table tr:nth-child(1) td span input:nth-child(1){width: 14px; height: 14px; margin: 0 3px 0 0;}
-.joinWrap1 table tr:nth-child(1) td span label:nth-child(2){padding: 0 20px 0 0;}
-.joinWrap1 table tr:nth-child(1) td span input:nth-child(3){width: 14px; height: 14px;}
-.joinWrap1 table tr:nth-child(2) td input:nth-child(1){width: 60px; margin: 0 4px 0 0;}
-.joinWrap1 table tr:nth-child(2) td input:nth-child(2){width: 30px; margin: 0 4px 0 0;}
-.joinWrap1 table tr:nth-child(2) td input:nth-child(3){width: 30px; margin: 0 4px 0 0;}
-.joinWrap1 table tr:nth-child(3) td input:nth-child(1){width: 60px; margin: 0 4px 0 0;}
-.joinWrap1 table tr:nth-child(3) td input:nth-child(2){width: 30px; margin: 0 4px 0 0;}
-.joinWrap1 table tr:nth-child(3) td input:nth-child(3){width: 30px; margin: 0 4px 0 0;}
-.joinWrap1 table tr:nth-child(4) td select{width: 200px; height: 24px; margin: 0 4px 0 0;} */
-/* <joinWrap1 */	 
-
-/* >joinWrap2 */
-.joinWrap2{padding: 20px 20px 15px 20px; border: 1px solid #d7d5d5; color: #000; font-size: 11px; line-height: 20px; background: #fbfafa;}
-.agree{height: 110px; overflow: hidden; padding: 20px; border: 1px solid #e6e6e6; background: #fff;}
-.agree p{padding: 0 0 17px; color: #000; font-size: 11px; line-height: 20px;}
-
-.check{padding: 7px 0 0 0; color: #000; font-size: 11px;}
-.check input{width: 14px; height: 14px; margin: 0 3px 0 0;}
-/* <joinWrap2 */
-
-/* >joinWrap3 */
-.joinWrap3{padding: 20px 20px 15px 20px; border: 1px solid #d7d5d5; color: #000; font-size: 11px; line-height: 20px; background: #fbfafa;}
-.agree{height: 110px; overflow: auto; padding: 20px; border: 1px solid #e6e6e6; background: #fff;}
-.agree p{padding: 0 0 17px; color: #000; font-size: 11px; line-height: 20px;}
-/* <joinWrap3 */
-
-/* >btnArea */
-.btnArea{margin: 20px 0 50px; overflow: hidden; text-align: center; /* border: 1px solid red; */}
-.btnArea a{padding: 12px 12px 10px 12px; font-family: Arial; font-size: 12px; display: inline-block; font-weight: bold;}
-.btnArea a:nth-child(1){color: #fff; border: 1px solid #646464; background-color: #646464;}
-.btnArea a:nth-child(2){color: #000; border: 1px solid #dcdcdc; background-color: #ffffff;}
-/* <btnArea */
-
-</style>
-</head>
-<body>
-<!-- 
-http://localhost:8080/Dailyline/memberjoin.me 
-01.member/Memberjoin.jsp파일생성
--->
+<!-- http://localhost:8080/Dailyline/memberjoin.me 01.member/Memberjoin.jsp파일생성 -->
 <!-- header -->
-	<div>
-		<jsp:include page="../main/header.jsp"/>
-	</div>
+	<jsp:include page="../main/header.jsp"/>
 <!-- header -->
+
 <!-- >mainWrap -->
 <div id = "mainWrap">
 	<!-- >sliderWrap -->
@@ -411,9 +312,5 @@ http://localhost:8080/Dailyline/memberjoin.me
 <!-- <mainWrap -->
 
 <!-- footer -->
-	<div>
-		<jsp:include page="../main/footer.jsp"/>
-	</div>
+	<jsp:include page="../main/footer.jsp"/>
 <!-- footer -->
-</body>
-</html>
