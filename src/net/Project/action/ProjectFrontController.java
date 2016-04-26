@@ -89,7 +89,7 @@ public class ProjectFrontController extends HttpServlet {
 			action=new GoodsListAction();
 			
 			try {
-				forward = action.execute(request, response);
+				forward = action.execute(request, response); 
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
