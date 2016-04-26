@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!-- http://localhost:8080/Dailyline/memberjoin.me 01.member/Memberjoin.jsp파일생성 -->
 <!-- header -->
 	<jsp:include page="../main/header.jsp"/>
