@@ -1,7 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
-    
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="./css/common.css">
+<link rel="stylesheet" href="./css/incl.css">
+<link rel="stylesheet" href ="./css/main.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:600" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<!-- header -->
+	<div>  
 <div id = "headerWrap">
 	
 	<!-- 최상단 탑 네비게이션바 -->
@@ -11,8 +22,8 @@
 				<ul>
 				<c:choose>
 					<c:when test="${empty sessionScop.id }">
-						<li><a href ="login.me">LOGIN</a></li>
-						<li><a href ="memberjoin.me">JOIN US</a></li>
+						<li><a href ="login.do">LOGIN</a></li>
+						<li><a href ="memberjoin.do">JOIN US</a></li>
 						<li><a href ="#">ORDER</a></li>
 					</c:when>
 					<c:otherwise>
@@ -71,5 +82,5 @@
 	</div>
 	<!-- 하단 글로벌 네비게이션바 끝 -->
 
-
 </div>
+	</div><!-- header -->

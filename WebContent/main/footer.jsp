@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 
     
-    
+	<!-- footer -->
+	<div>    
     
 <div id = "footWrap">
 	<div id = "foot1">
@@ -11,3 +12,7 @@
 		</div>
 	</div>
 </div>
+	</div><!-- footer -->
+
+</body>
+</html>
