@@ -19,7 +19,7 @@
 		<!-- >joinWrap -->
 		<div class="joinWrap">
 			<table>
-				<form>
+				<form action="./JoinAction.do" method="post" id="fr" onsubmit="return chkForm()">
 				<caption>회원 기본정보</caption>
 				<tr>
 					<th>
@@ -27,7 +27,7 @@
 						<img src="./img/member/ico_required.gif">
 					</th>
 					<td>
-						<input type="text">
+						<input type="text" name="id">
 						<a href="#"><img alt="아이디중복확인" src="./img/member/btn_overlap_id.gif"></a>
 						(영문소문자/숫자, 4~16자)
 					</td>
@@ -38,7 +38,7 @@
 						<img src="./img/member/ico_required.gif">
 					</th>
 					<td>
-						<input type="text">
+						<input type="text" name="passwd">
 						(영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 8자~16자)
 					</td>
 				</tr>
@@ -48,7 +48,7 @@
 						<img src="./img/member/ico_required.gif">
 					</th>
 					<td>
-						<input type="text">
+						<input type="text" name="pwChk">
 					</td>
 				</tr>
 				<tr>
@@ -57,7 +57,7 @@
 						<img src="./img/member/ico_required.gif">
 					</th>
 					<td>
-						<input type="text">
+						<input type="text" name="name">
 					</td>
 				</tr>
 				<tr>
@@ -68,8 +68,8 @@
 					<td>
 						<input type="text">-<input type="text">
 						<a href="#"><img alt="" src="./img/member/btn_zipcode.gif"></a><br>
-						<input type="text">기본주소<br>
-						<input type="text">나머지주소
+						<input type="text" name="addr1">기본주소<br>
+						<input type="text" name="addr2">나머지주소
 					</td>
 				</tr>
 				<tr>
@@ -111,7 +111,7 @@
 							<option>019</option>
 						</select>
 						-
-						<input type="text">
+						<input type="text" sys<%=  %>>
 						-
 						<input type="text">
 					</td>

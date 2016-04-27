@@ -16,6 +16,6 @@ img{border: none; vertical-align: middle;}
 .login_left{width: 220px; float: left;}
 .login_left input:nth-child(1){width: 100%; padding: 10px; color: #000; font-size: 12px; /* background-image: url("./img/member/id.gif")no-repeat; background-position-x: 10px; background-position-y: 13px; */ border: 1px solid #ccc;}
 .login_left input:nth-child(2){width: 100%; padding: 10px; color: #000; font-size: 12px; margin-top: 10px;/* background-image: url("./img/member/pw.gif")no-repeat; background-position-x: 10px; background-position-y: 13px; */ border: 1px solid #ccc;}
-.login_right{float: right;}
+.login_right{float: right; cursor: pointer;}
 .login_Bottom{display: inline-block; margin-top: 50px;}
 /* <login_Wrap */

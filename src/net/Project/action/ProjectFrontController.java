@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.Member.action.JoinAction;
+import net.Member.action.LoginAction;
 import net.Project.action.ActionForward;
 import net.Project.admin.goods.action.GoodsListAction;
 //01.member/join.jsp파일생성
@@ -57,8 +59,9 @@ public class ProjectFrontController extends HttpServlet {
 			forward.setPath("/main/main.jsp");
 			forward.setRedirect(false);
 			
+		/*join*/	
 		} else if(command.equals("/join.do")){//=-:대상의주소값을비교 , .equals:대상의내용자체를비교
-		// command에 들어가있는 /memberjoin.me라는 주소값이 rjoin.do와 같으면
+		// command에 들어가있는 /memberjoin.me라는 주소값이 join.do와 같으면
 			forward=new ActionForward();
 			//새로운 ActionForward()객체를 생성
 			forward.setPath("./member/join.jsp");
@@ -73,12 +76,32 @@ public class ProjectFrontController extends HttpServlet {
 				redirect : C.jsp에서는 A.jsp가 B.jsp에게 보내준 파라미터를 사용할수 없음  
 						   주소창에는 C.jsp로 찍혀있음(C.jsp의 내용이 브라우저 상에서 실행됨) **/
 		
+		/*login*/
 		} else if(command.equals("/login.do")){
 			// ./member/login.jsp
 			forward=new ActionForward();
 			forward.setPath("./member/login.jsp");
 			forward.setRedirect(false);
+		} else if(command.equals("/LoginAction.do")){
+			action=new LoginAction();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		
+		/*join*/
+		}else if(command.equals("join.do")){
+			forward=new ActionForward();
+			forward.setPath("./member/join.jsp");
+			forward.setRedirect(false);
+		}else if(command.equals("JoinAction.do")){
+			action=new JoinAction();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		/*admin*/	
 		} else if(command.equals("/admin/main.do")){
 			forward = new ActionForward();
