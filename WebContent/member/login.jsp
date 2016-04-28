@@ -41,7 +41,7 @@
 			<!-- >login_Bottom -->
 			<!-- 회원가입bt -->
 			<div class="login_Bottom">
-				<input type="image" src="./img/member/register.gif" onclick="location.href='join.jsp'">
+				<a href="./join.do"><img src="./img/member/register.gif"></a>
 			</div>
 			<!-- <login_Bottom -->
 		</form>

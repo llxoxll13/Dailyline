@@ -32,11 +32,8 @@ public class LoginAction implements Action{
 		if(check == 0){ //로그인이 안됐을때/서버측에서 이동할 필요없음.
 			System.out.println("[check == 0]check : " +check);
 			//응답을 주는 도구[response]가 있어야한다.
+			response.setContentType("text/html; charset=UTF-8");//한글깨짐방지
 			PrintWriter out=response.getWriter();//response객체에서 getWriter()메소드사용하여 DB값을호출? 하는 객체생성?
-			response.setContentType("text/html; charser=UTF-8");//한글깨짐방지
-			//response.setCharacterEncoding("UTF-8");
-			//왜안되는거니 얘드라
-			out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />");
 			out.println("<script>");
 			out.println("alert('비밀번호틀림');");
 			out.println("history.back();");
@@ -45,10 +42,8 @@ public class LoginAction implements Action{
 			return null;
 		}else if(check==-1){//로그인이 안됐을때
 			System.out.println("[check == 1]check : " +check);
+			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out=response.getWriter();
-			//response.setContentType("text/html; charser=UTF-8");
-			response.setCharacterEncoding("UTF-8");
-			out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />");
 			out.println("<script>");
 			out.println("alert('아이디없음');");
 			out.println("history.back();");
@@ -56,7 +51,7 @@ public class LoginAction implements Action{
 			out.close();
 			return null;
 		}
-		System.out.println("[check == -1]check : " +check);
+		
 		//세션값 생성"id"
 		HttpSession session=request.getSession();
 		session.setAttribute("id", id);
@@ -66,10 +61,10 @@ public class LoginAction implements Action{
 		forward.setRedirect(true);
 		//관리자 ./admin/main.do
 		
-		if(memberDAO.isAdmin(id)==1){//관리자접속시
+		if(memberDAO.isAdmin(id)==2){//관리자접속시
 			forward.setPath("./admin/main.do");
 			return forward;
-		}else if(memberDAO.isAdmin(id)!=1){
+		}else if(memberDAO.isAdmin(id)!=2){
 			forward.setPath("./main.do");
 			return forward;
 		}

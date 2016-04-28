@@ -36,29 +36,6 @@ h3{font-size: 12px; margin-top: 50px; color: #000; padding: 0 0 10px 0;}
 .joinWrap table tr:nth-child(8) td select{height: 24px;}
 /* <joinWrap */
 
-/* >joinWrap1 */
-/* .joinWrap1{font-size: 11px; text-align: left; font-weight: normal; vertical-align: middle; border: 1px solid #d7d5d5;}
-.joinWrap1 table tr{width: 100%; border-top: 1px solid #e8e8e8;}
-.joinWrap1 table tr th{width: 130px; text-align: left; vertical-align: middle; font-weight: normal; 
-	padding: 10px 0 8px 20px; border-right: 1px solid #e8e8e8; background-color: #fbfafa;}
-.joinWrap1 table tr td{padding: 10px 0 8px 10px;}
-.joinWrap1 table tr td input{height: 14px; padding: 4px; color: #000; border: 1px solid #d9d9d9;}
-.joinWrap1 table tr:nth-child(1) td input:nth-child(1){width: 60px; margin: 0 4px 0 0;}
-.joinWrap1 table tr:nth-child(1) td input:nth-child(2){width: 30px; margin: 0 4px 0 0;}
-.joinWrap1 table tr:nth-child(1) td input:nth-child(3){width: 30px; margin: 0 4px 0 0;}
-.joinWrap1 table tr:nth-child(1) td span{margin: 0 0 0 16px; font-size: 11px;}
-.joinWrap1 table tr:nth-child(1) td span input:nth-child(1){width: 14px; height: 14px; margin: 0 3px 0 0;}
-.joinWrap1 table tr:nth-child(1) td span label:nth-child(2){padding: 0 20px 0 0;}
-.joinWrap1 table tr:nth-child(1) td span input:nth-child(3){width: 14px; height: 14px;}
-.joinWrap1 table tr:nth-child(2) td input:nth-child(1){width: 60px; margin: 0 4px 0 0;}
-.joinWrap1 table tr:nth-child(2) td input:nth-child(2){width: 30px; margin: 0 4px 0 0;}
-.joinWrap1 table tr:nth-child(2) td input:nth-child(3){width: 30px; margin: 0 4px 0 0;}
-.joinWrap1 table tr:nth-child(3) td input:nth-child(1){width: 60px; margin: 0 4px 0 0;}
-.joinWrap1 table tr:nth-child(3) td input:nth-child(2){width: 30px; margin: 0 4px 0 0;}
-.joinWrap1 table tr:nth-child(3) td input:nth-child(3){width: 30px; margin: 0 4px 0 0;}
-.joinWrap1 table tr:nth-child(4) td select{width: 200px; height: 24px; margin: 0 4px 0 0;} */
-/* <joinWrap1 */	 
-
 /* >joinWrap2 */
 .joinWrap2{padding: 20px 20px 15px 20px; border: 1px solid #d7d5d5; color: #000; font-size: 11px; line-height: 20px; background: #fbfafa;}
 .agree{height: 110px; overflow: hidden; padding: 20px; border: 1px solid #e6e6e6; background: #fff;}

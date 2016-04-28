@@ -16,239 +16,174 @@
 		<!-- <titleArea -->
 		<h3>기본정보</h3>
 		
-		<!-- >joinWrap -->
-		<div class="joinWrap">
-			<table>
-				<form action="./JoinAction.do" method="post" name="fr">
-				<caption>회원 기본정보</caption>
-				<tr>
-					<th>
-						아이디
-						<img src="./img/member/ico_required.gif">
-					</th>
-					<td>
-						<!-- id -->
-						<input type="text" name="id">
-						<a href="#"><img alt="아이디중복확인" src="./img/member/btn_overlap_id.gif"></a>
-						(영문소문자/숫자, 4~16자)
-					</td>
-				</tr>
-				<tr>
-					<th>
-						비밀번호
-						<img src="./img/member/ico_required.gif">
-					</th>
-					<td>
-						<!-- passwd -->
-						<input type="text" name="passwd">
-						(영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 8자~16자)
-					</td>
-				</tr>
-				<tr>
-					<th>
-						비밀번호 확인
-						<img src="./img/member/ico_required.gif">
-					</th>
-					<td>
-						<!-- passwd pwChk -->
-						<input type="text" name="pwChk">
-					</td>
-				</tr>
-				<tr>
-					<th>
-						이름
-						<img src="./img/member/ico_required.gif">
-					</th>
-					<td>
-						<!-- name -->
-						<input type="text" name="name">
-					</td>
-				</tr>
-				<tr>
-					<th>
-						주소
-						<img src="./img/member/ico_required.gif">
-					</th>
-					<td>
-						<!-- post1,post2 -->
-						<input type="text" name="post1">-<input type="text" name="post2" onclick="post2()">
-						<a href="#"><img alt="" src="./img/member/btn_zipcode.gif"></a><br>
-						<!-- addr1,addr2 -->
-						<input type="text" name="addr1">기본주소<br>
-						<input type="text" name="addr2">나머지주소
-					</td>
-				</tr>
-				<tr>
-					<th>
-						일반전화
-						<img src="./img/member/ico_required.gif">
-					</th>
-					<td>
-						<!-- call1 -->
-						<select name="call1" onclick="call1()">
-							<option>02</option>
-							<option>031</option>
-							<option>032</option>
-							<option>033</option>
-							<option>041</option>
-							<option>042</option>
-							<option>043</option>
-							<option>044</option>
-							<option>051</option>
-							<option>052</option>
-							<option>053</option>
-							<option>054</option>
-							<option>055</option>
-							<option>061</option>
-							<option>062</option>
-							<option>063</option>
-							<option>064</option>
-							<option>0502</option>
-							<option>0503</option>
-							<option>0504</option>
-							<option>0505</option>
-							<option>0506</option>
-							<option>0507</option>
-							<option>070</option>
-							<option>010</option>
-							<option>011</option>
-							<option>016</option>
-							<option>017</option>
-							<option>018</option>
-							<option>019</option>
-						</select>
-						-
-						<!-- call2 -->
-						<input type="text" name="call2">
-						-
-						<!-- call3 -->
-						<input type="text" name="call3">
-					</td>
-				</tr>
-				<tr>
-					<th>
-						휴대전화
-						<img src="./img/member/ico_required.gif">
-					</th>
-					<td>
-						<!-- phone1 -->
-						<select name="phone1" onclick="phone1()">
-							<option>010</option>
-							<option>011</option>
-							<option>016</option>
-							<option>017</option>
-							<option>018</option>
-							<option>019</option>
-						</select>
-						-
-						<!-- phone2 -->
-						<input type="text" name="phone2">
-						-
-						<!-- phone3 -->
-						<input type="text" name="phone3">
-					</td>
-				</tr>
-				<tr>
-					<th>
-						이메일
-						<img src="./img/member/ico_required.gif">
-					</th>
-					<td>
-						<!-- email1 -->
-						<input type="text" name="email1">
-						@
-						<!-- email2 -->
-						<input type="text" name="email2">
-						<!-- email3 -->
-						<select name="email3" onclick="email3()">
-							<option selected="selected">- 이메일 선택 -</option>
-							<option>naver.com</option>
-							<option>daum.net</option>
-							<option>nate.com</option>
-							<option>hotmail.com</option>
-							<option>yahoo.com</option>
-							<option>empas.com</option>
-							<option>korea.com</option>
-							<option>dreamwiz.com</option>
-							<option>gmail.com</option>
-							<option>직접입력</option>
-						</select>
-					</td>
-				</tr>
-				</form>
-			</table>
-		</div>
-		<!-- <joinWrap -->
-		
-		<!-- <h3>추가정보</h3>
-		>joinWrap1
-		<div class="joinWrap1">
-			<table>
-				<form>
-				<caption>회원 추가정보</caption>
-				<tr>
-					<th>
-						생년월일 
-					</th>
-					<td>
-						<input type="text"> 년 <input type="text"> 월 <input type="text"> 일 
-						<span>
-							<input type="radio" id="0"><label for="0">양력</label> 
-							<input type="radio" id="1"><label for="1">음력</label> 
-						</span>
-					</td>
-				</tr>
-				<tr>
-					<th>
-						결혼기념일
-					</th>
-					<td>
-						<input type="text"> 년 <input type="text"> 월 <input type="text"> 일 
-					</td>
-				</tr>
-				<tr>
-					<th>
-						배우자생일 
-					</th>
-					<td>
-						<input type="text"> 년 <input type="text"> 월 <input type="text"> 일 
-					</td>
-				</tr>
-				<tr>
-					<th>
-						지역 
-					</th>
-					<td>
-						<select>
-							<option>선택</option>
-							<option>경기</option>
-							<option>서울</option>
-							<option>인천</option>
-							<option>강원</option>
-							<option>충남</option>
-							<option>충북</option>
-							<option>대전</option>
-							<option>경북</option>
-							<option>경남</option>
-							<option>대구</option>
-							<option>부산</option>
-							<option>울산</option>
-							<option>전북</option>
-							<option>전남</option>
-							<option>광주</option>
-							<option>제주</option>
-							<option>해외</option>
-						</select>
-					</td>
-				</tr>
-				</form>
-			</table>
-		</div>
-		<joinWrap1 -->
-		
-		<h3>이용약관동의</h3>
-		<!-- >joinWrap2 -->
-		<form action="">
+		<!-- >form -->
+		<form action="./JoinAction.do" method="post" name="fr">
+			<!-- >joinWrap -->
+			<div class="joinWrap">
+				<!-- >table -->
+				<table>
+					<caption>회원 기본정보</caption>
+					<tr>
+						<th>
+							아이디
+							<img src="./img/member/ico_required.gif">
+						</th>
+						<td>
+							<!-- id -->
+							<input type="text" name="id">
+							<a href="#"><img alt="아이디중복확인" src="./img/member/btn_overlap_id.gif"></a>
+							(영문소문자/숫자, 4~16자)
+						</td>
+					</tr>
+					<tr>
+						<th>
+							비밀번호
+							<img src="./img/member/ico_required.gif">
+						</th>
+						<td>
+							<!-- passwd -->
+							<input type="text" name="passwd">
+							(영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 8자~16자)
+						</td>
+					</tr>
+					<tr>
+						<th>
+							비밀번호 확인
+							<img src="./img/member/ico_required.gif">
+						</th>
+						<td>
+							<!-- passwd pwChk -->
+							<input type="text" name="pwChk">
+						</td>
+					</tr>
+					<tr>
+						<th>
+							이름
+							<img src="./img/member/ico_required.gif">
+						</th>
+						<td>
+							<!-- name -->
+							<input type="text" name="name">
+						</td>
+					</tr>
+					<tr>
+						<th>
+							주소
+							<img src="./img/member/ico_required.gif">
+						</th>
+						<td>
+							<!-- post,post1 -->
+							<input type="text" name="post">-<input type="text" name="post1" onclick="post1()">
+							<a href="#"><img alt="" src="./img/member/btn_zipcode.gif"></a><br>
+							<!-- addr1,addr2 -->
+							<input type="text" name="addr1">기본주소<br>
+							<input type="text" name="addr2">나머지주소
+						</td>
+					</tr>
+					<tr>
+						<th>
+							일반전화
+							<img src="./img/member/ico_required.gif">
+						</th>
+						<td>
+							<!-- call1 -->
+							<select name="call1" onclick="call1()">
+								<option>02</option>
+								<option>031</option>
+								<option>032</option>
+								<option>033</option>
+								<option>041</option>
+								<option>042</option>
+								<option>043</option>
+								<option>044</option>
+								<option>051</option>
+								<option>052</option>
+								<option>053</option>
+								<option>054</option>
+								<option>055</option>
+								<option>061</option>
+								<option>062</option>
+								<option>063</option>
+								<option>064</option>
+								<option>0502</option>
+								<option>0503</option>
+								<option>0504</option>
+								<option>0505</option>
+								<option>0506</option>
+								<option>0507</option>
+								<option>070</option>
+								<option>010</option>
+								<option>011</option>
+								<option>016</option>
+								<option>017</option>
+								<option>018</option>
+								<option>019</option>
+							</select>
+							-
+							<!-- call2 -->
+							<input type="text" name="call2">
+							-
+							<!-- call3 -->
+							<input type="text" name="call3">
+						</td>
+					</tr>
+					<tr>
+						<th>
+							휴대전화
+							<img src="./img/member/ico_required.gif">
+						</th>
+						<td>
+							<!-- phone1 -->
+							<select name="phone1" onclick="phone1()">
+								<option>010</option>
+								<option>011</option>
+								<option>016</option>
+								<option>017</option>
+								<option>018</option>
+								<option>019</option>
+							</select>
+							-
+							<!-- phone2 -->
+							<input type="text" name="phone2">
+							-
+							<!-- phone3 -->
+							<input type="text" name="phone3">
+						</td>
+					</tr>
+					<tr>
+						<th>
+							이메일
+							<img src="./img/member/ico_required.gif">
+						</th>
+						<td>
+							<!-- email1 -->
+							<input type="text" name="email1">
+							@
+							<!-- email2 -->
+							<input type="text" name="email2">
+							<!-- email3 -->
+							<select name="email3" onclick="email3()">
+								<option selected="selected">- 이메일 선택 -</option>
+								<option>naver.com</option>
+								<option>daum.net</option>
+								<option>nate.com</option>
+								<option>hotmail.com</option>
+								<option>yahoo.com</option>
+								<option>empas.com</option>
+								<option>korea.com</option>
+								<option>dreamwiz.com</option>
+								<option>gmail.com</option>
+								<option>직접입력</option>
+							</select>
+						</td>
+					</tr>
+				</table>
+				<!-- <table -->
+			</div>
+			<!-- <joinWrap -->
+			
+			<h3>이용약관동의</h3>
+			<!-- >joinWrap2 -->
 			<div class="joinWrap2">
 				<div class="agree">
 		            <p><font face="Arial" size="2">제1조(목적)<br>이 약관은 탑에이블(전자상거래 사업자)가 운영하는 DAILYLINE (이하 “몰”이라 한다)에서 제공하는 인터넷 관련 서비스(이하 “서비스”라 한다)를 이용함에 있어 사이버 몰과 이용자의 권리․의무 및 책임사항을 규정함을 목적으로 합니다.<br>※「PC통신, 무선 등을 이용하는 전자상거래에 대해서도 그 성질에 반하지 않는 한 이 약관을 준용합니다.」</font></p>
@@ -284,7 +219,7 @@
 				</div>
 			</div>
 			<!-- <joinWrap2 -->
-			
+				
 			<h3>개인정보 수집 및 이용 동의</h3>
 			<!-- >joinWrap3 -->
 			<div class="joinWrap3">
@@ -313,6 +248,7 @@
 					<input type="checkbox"><label>동의함</label>
 				</div>
 			</div>	
+			<!-- <joinWrap3 -->
 			
 			<!-- >btnArea -->
 			<div class="btnArea">
@@ -320,9 +256,9 @@
 				<input type="button" value="가입취소">
 			</div>
 			<!-- <btnArea -->
-		</form>
-		<!-- >joinWrap3 -->
 			
+		</form>
+		<!-- >form -->
 	</div>
 	<!-- <sliderWrap -->
 </div>

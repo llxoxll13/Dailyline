@@ -98,7 +98,7 @@ public class MemberDAO {
 		
 		try {
 			con=getConnection();
-			sql="select mem_lv from member where mem_lv=?";//멤버안의 mem_lv의 값이 2인경우(어드민)
+			sql="select mem_lv from members where mem_lv=?";//멤버안의 mem_lv의 값이 2인경우(어드민)
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs=pstmt.executeQuery();
@@ -130,11 +130,14 @@ public class MemberDAO {
 		PreparedStatement pstmt=null;//사용자입력값을폼에서받아 DB에저장할수있는 변수
 		String sql="";//DB에 명형할 쿼리문 변수
 		int check=0;
+		int count=0;
 		try {
 			//1.드라이버로드//2.DB연결
 			con=getConnection();
-			sql="insert into member(id,passwd,name,post,addr1,addr2,phone,call,email) values(?,?,?,?,?,?,?,?,?)";
+			System.out.println("insertMember메소드실행");
+			sql="insert into members(id,passwd,name,post,addr1,addr2,phone,call,email) values(?,?,?,?,?,?,?,?,?)";
 			pstmt=con.prepareStatement(sql);//변수pstmt안에 sql문을 이용하여 DB의 값을 변경한것을 저장한다
+			System.out.println("sql문 실행");
 			pstmt.setString(1, memberBean.getId());
 			pstmt.setString(2, memberBean.getPasswd());
 			pstmt.setString(3, memberBean.getName());
@@ -144,10 +147,48 @@ public class MemberDAO {
 			pstmt.setString(7, memberBean.getPhone());
 			pstmt.setString(8, memberBean.getCall());
 			pstmt.setString(9, memberBean.getEmail());
+			//사용자입력값 확인하기
+			System.out.println("=== 사용자 입력값 확인 ===");
+			System.out.println("getId :"+memberBean.getId());
+			System.out.println("getPasswd :"+memberBean.getPasswd());
+			System.out.println("getName :"+memberBean.getName());
+			System.out.println("getPost :"+memberBean.getPost());
+			System.out.println("getAddr1 :"+memberBean.getAddr1());
+			System.out.println("getAddr2 :"+memberBean.getAddr2());
+			System.out.println("getPhone :"+memberBean.getPhone());
+			System.out.println("getCall :"+memberBean.getCall());
+			System.out.println("getEmail :"+memberBean.getEmail());
+			System.out.println("=== 사용자 입력값 확인 ===");
 			check=pstmt.executeUpdate();
+			pstmt.close();
+			
+			if(check > 0){
+				//1 member insert
+				sql="insert into seller(id,passwd,name,post,addr1,addr2,phone,call,email)"
+						+"values(?,?,?,?,?,?,?,?,?)";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setString(1, memberBean.getId());
+				pstmt.setString(2, memberBean.getPasswd());
+				pstmt.setString(3, memberBean.getName());
+				pstmt.setString(4, memberBean.getPost());
+				pstmt.setString(5, memberBean.getAddr1());
+				pstmt.setString(6, memberBean.getAddr2());
+				pstmt.setString(7, memberBean.getPhone());
+				pstmt.setString(8, memberBean.getCall());
+				pstmt.setString(9, memberBean.getEmail());
+				count=pstmt.executeUpdate();
+			}else{
+				count=0;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			}
 			//JDBC자원닫기
 			try {
 				if(pstmt != null) pstmt.close();
@@ -156,7 +197,7 @@ public class MemberDAO {
 				e.printStackTrace();
 			}
 		}
-		return check;
+		return count;
 	}
 	
 	
@@ -225,7 +266,7 @@ public class MemberDAO {
 			  getConnection()을 하면 connection객체가 있을경우 그객체를 사용하고 
 			 	없을경우 새로운 connection객체를 만들어 사용.
 				freeConnection()은 다쓴 connection객체를 vector로 돌려주는 역할을 한다. 
-			sql="select * from member";//SQL문/ 멤버안의 모든것을 선택한다.
+			sql="select * from members";//SQL문/ 멤버안의 모든것을 선택한다.
 			pstmt=con.prepareStatement(sql);//변수pstmt안에 sql문을 이용하여 DB의 값을 변경한것을 저장한다
 			rs=pstmt.executeQuery();
 				 명령에대한봔환값을가지는 변수명 rs안에 

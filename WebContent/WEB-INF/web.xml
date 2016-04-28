@@ -23,28 +23,5 @@
 	<!-- 가상의 주소를 계속 만들게 될 경우 비효율적이기 때문에 
 	     web.xml에서 <url-pattern>/main.do</url-pattern>
 	  	 을 주소값으로 주지 않고 확장자 명으로 제어를 할 수 있다. -->
-  </servlet-mapping>
-  
-  <!-- 
-  p274 커넥션 풀
-	(클라이언트에서의 요청이 오면 서버가 DB에 요청하지 않고 자기가 가지고 있던 것을 바로 건네줄 수 있다
-	 클라이언트의 체감시간이 짧아진다)
-	Connection Pool
-	p275 http://commons.apache.org/
-	*Collections-Releases The latest version is v4.0 - Download now!-Binaries commons-collections4-4.0-bin.zip
-	*DBCP-Releases See the downloads page for information on obtaining releases. -Binaries commons-dbcp2-2.1.1-bin.zip
-	*Pool-Releases See the downloads page for information on obtaining releases. -Apache Commons Pool Downloads page. -Binaries commons-pool2-2.4.2-bin.zip
-	
-	압출풀고 제일이름이 짧은 파일을 이클립스 안의 web-inf-lib안에 붙여넣기
-
-	web.xml-> welcome-file-list -> 명시적으로 적지 않아도 자동으로 찾아서 연결해줌 ?
-	META-INF-xml파일이 오는곳
-   -->
-  <resource-ref>
-    <description>Oracle DB</description>
-    <res-ref-name>jdbc/ora11g</res-ref-name>
-    <res-type>javax.sql.DataSource</res-type>
-    <res-auth>Container</res-auth>
-  </resource-ref>
-  
+  </servlet-mapping> 
 </web-app>
