@@ -19,7 +19,7 @@
 		<!-- >joinWrap -->
 		<div class="joinWrap">
 			<table>
-				<form action="./JoinAction.do" method="post" id="fr" onsubmit="return chkForm()">
+				<form action="./JoinAction.do" method="post" name="fr">
 				<caption>회원 기본정보</caption>
 				<tr>
 					<th>
@@ -27,6 +27,7 @@
 						<img src="./img/member/ico_required.gif">
 					</th>
 					<td>
+						<!-- id -->
 						<input type="text" name="id">
 						<a href="#"><img alt="아이디중복확인" src="./img/member/btn_overlap_id.gif"></a>
 						(영문소문자/숫자, 4~16자)
@@ -38,6 +39,7 @@
 						<img src="./img/member/ico_required.gif">
 					</th>
 					<td>
+						<!-- passwd -->
 						<input type="text" name="passwd">
 						(영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 8자~16자)
 					</td>
@@ -48,6 +50,7 @@
 						<img src="./img/member/ico_required.gif">
 					</th>
 					<td>
+						<!-- passwd pwChk -->
 						<input type="text" name="pwChk">
 					</td>
 				</tr>
@@ -57,6 +60,7 @@
 						<img src="./img/member/ico_required.gif">
 					</th>
 					<td>
+						<!-- name -->
 						<input type="text" name="name">
 					</td>
 				</tr>
@@ -66,8 +70,10 @@
 						<img src="./img/member/ico_required.gif">
 					</th>
 					<td>
-						<input type="text">-<input type="text">
+						<!-- post1,post2 -->
+						<input type="text" name="post1">-<input type="text" name="post2" onclick="post2()">
 						<a href="#"><img alt="" src="./img/member/btn_zipcode.gif"></a><br>
+						<!-- addr1,addr2 -->
 						<input type="text" name="addr1">기본주소<br>
 						<input type="text" name="addr2">나머지주소
 					</td>
@@ -78,7 +84,8 @@
 						<img src="./img/member/ico_required.gif">
 					</th>
 					<td>
-						<select>
+						<!-- call1 -->
+						<select name="call1" onclick="call1()">
 							<option>02</option>
 							<option>031</option>
 							<option>032</option>
@@ -111,9 +118,11 @@
 							<option>019</option>
 						</select>
 						-
-						<input type="text" sys<%=  %>>
+						<!-- call2 -->
+						<input type="text" name="call2">
 						-
-						<input type="text">
+						<!-- call3 -->
+						<input type="text" name="call3">
 					</td>
 				</tr>
 				<tr>
@@ -122,7 +131,8 @@
 						<img src="./img/member/ico_required.gif">
 					</th>
 					<td>
-						<select>
+						<!-- phone1 -->
+						<select name="phone1" onclick="phone1()">
 							<option>010</option>
 							<option>011</option>
 							<option>016</option>
@@ -131,9 +141,11 @@
 							<option>019</option>
 						</select>
 						-
-						<input type="text">
+						<!-- phone2 -->
+						<input type="text" name="phone2">
 						-
-						<input type="text">
+						<!-- phone3 -->
+						<input type="text" name="phone3">
 					</td>
 				</tr>
 				<tr>
@@ -142,10 +154,13 @@
 						<img src="./img/member/ico_required.gif">
 					</th>
 					<td>
-						<input type="text">
+						<!-- email1 -->
+						<input type="text" name="email1">
 						@
-						<input type="text">
-						<select>
+						<!-- email2 -->
+						<input type="text" name="email2">
+						<!-- email3 -->
+						<select name="email3" onclick="email3()">
 							<option selected="selected">- 이메일 선택 -</option>
 							<option>naver.com</option>
 							<option>daum.net</option>
@@ -301,8 +316,8 @@
 			
 			<!-- >btnArea -->
 			<div class="btnArea">
-				<a href="#">회원가입</a>
-				<a href="#">가입취소</a>
+				<input type="submit" value="회원가입">
+				<input type="button" value="가입취소">
 			</div>
 			<!-- <btnArea -->
 		</form>

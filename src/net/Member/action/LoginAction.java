@@ -22,9 +22,9 @@ public class LoginAction implements Action{
 		String passwd=request.getParameter("passwd");
 		System.out.println("passwd : "+passwd);
 		//DB객체생성 memberdao
-		MemberDAO memberdao=new MemberDAO();
+		MemberDAO memberDAO=new MemberDAO();
 		//int chech=메소드호출 userCheck(id,passwd)
-		int check=memberdao.userCheck(id, passwd);
+		int check=memberDAO.userCheck(id, passwd);
 		//check==1  로그인인증 main.jsp이동
 		//check==0  "비밀번호틀림" 뒤로이동
 		//check==-1 "아이디없음" 뒤로이동
@@ -35,6 +35,7 @@ public class LoginAction implements Action{
 			PrintWriter out=response.getWriter();//response객체에서 getWriter()메소드사용하여 DB값을호출? 하는 객체생성?
 			response.setContentType("text/html; charser=UTF-8");//한글깨짐방지
 			//response.setCharacterEncoding("UTF-8");
+			//왜안되는거니 얘드라
 			out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />");
 			out.println("<script>");
 			out.println("alert('비밀번호틀림');");
@@ -60,14 +61,15 @@ public class LoginAction implements Action{
 		HttpSession session=request.getSession();
 		session.setAttribute("id", id);
 		
+		//이동
 		ActionForward forward=new ActionForward();
 		forward.setRedirect(true);
 		//관리자 ./admin/main.do
 		
-		if(memberdao.isAdmin(id)==1){//관리자접속시
+		if(memberDAO.isAdmin(id)==1){//관리자접속시
 			forward.setPath("./admin/main.do");
 			return forward;
-		}else if(memberdao.isAdmin(id)!=1){
+		}else if(memberDAO.isAdmin(id)!=1){
 			forward.setPath("./main.do");
 			return forward;
 		}

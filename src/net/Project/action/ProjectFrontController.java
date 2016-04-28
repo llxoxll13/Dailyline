@@ -75,7 +75,14 @@ public class ProjectFrontController extends HttpServlet {
 			 			    주소창에는 B.jsp로 찍혀있음(C.jsp의 내용이 서버의 내부적으로 실행됨)
 				redirect : C.jsp에서는 A.jsp가 B.jsp에게 보내준 파라미터를 사용할수 없음  
 						   주소창에는 C.jsp로 찍혀있음(C.jsp의 내용이 브라우저 상에서 실행됨) **/
-		
+		}else if(command.equals("/JoinAction.do")){
+			action=new JoinAction();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 		/*login*/
 		} else if(command.equals("/login.do")){
 			// ./member/login.jsp
@@ -90,22 +97,10 @@ public class ProjectFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		
-		/*join*/
-		}else if(command.equals("join.do")){
-			forward=new ActionForward();
-			forward.setPath("./member/join.jsp");
-			forward.setRedirect(false);
-		}else if(command.equals("JoinAction.do")){
-			action=new JoinAction();
-			try {
-				forward=action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 		/*admin*/	
 		} else if(command.equals("/admin/main.do")){
 			forward = new ActionForward();
-			forward.setPath("/admin/main.jsp");
+			forward.setPath("./admin/main.jsp");
 			forward.setRedirect(false);
 			
 		} else if(command.equals("/admin/goods/list.do")){

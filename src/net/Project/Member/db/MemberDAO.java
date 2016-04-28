@@ -11,6 +11,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import net.Project.admin.goods.db.GoodsBean;
+
 /*
 01.[DB] META-INF/context.xml파일에 DB과련하여 수정
 02.[DB] Java Resources/src/net.Project.Member.db/MemberBean.java파일생성
@@ -21,7 +23,7 @@ public class MemberDAO {
 	//DB연결 메소드(Connection 객체 가져오는 메소드) getConnection()
 		Connection con=null;//데이터베이스 연결 변수 선언
 		Context init=new InitialContext();//탐색기를 연다
-		DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/orcl");
+		DataSource ds=(DataSource) init.lookup("java:comp/env/jdbc/orcl");
 		//DataSource ds=(DataSource) init.lookup("jdbc:oracle:thin:@localhost:1521/orcl");// 커넥션 //그안에서 파일하나를 얻어온다
 		//DataSource ds=(DataSource) init.lookup("java:comp/env/jdbc/ora11g");
 		con=ds.getConnection();//데이터베이스에 연결할 변수 안에 커넥션(DB)안에서 얻어온 파일하나를 넣는다.
@@ -35,63 +37,9 @@ public class MemberDAO {
 			그 전에는 연결->사용->해제 였으나, 이제는 연결->사용-> "반환"으로 바뀐다.(커넥션풀) */
 	}
 	
+
 	
-	public List<MemberBean> getMemberList(){//MemberBean의 순차적으로 저장되어있는 값
-		Connection con=null;//데이터베이스 연결 변수 선언
-		PreparedStatement pstmt=null;//DB에 사용자의 입력내용으로 수정(저장)하기위해
-		// PreparedStatement : 실행시마다 가변적인 변수의 내용을 DB에 삽입하기 위해 사용하는 방법으로 
-		// 키보드로 입력받거나 awt의 각 폼으로 부터 입력되는 내용을 처리하여 DB에 입력할 수 있는 방식
-		String sql="";//PreparedStatement 객체에서 사용 SQL문을 만들기위해 초기화
-		ResultSet rs=null;//DB에 쿼리로 요청한 값을 저장할때 쓰인다.//DB에서 가져온값이 들어감
-			/* executeQuery로 명령하면 ResultSet이라는 객체를 돌려준다.
-			  executeQuery : DB에 명령
-			  ResultSet : 명령에 대한 반환값. 반환해주는 값은 아래에설명
-			  ==>
-			  executeQuery("Select * from tableName"); 이라고 보냈다면
-			  tableName 라는 테이블에서 값을 가져옴. 이 가져온 것이 ResultSet
-			  간단히 DB에 명령을 내리는 것. 그러면 그 명령에 따라서 DB가 작동하고, 작동한 결과 값을 돌려준다는 말이다. */
-		List<MemberBean> memberlist=new ArrayList<>();//제네릭을 사용하기위해 객체생성. 변수명:memberlist
-		
-		//예외처리
-		try {
-			con=getConnection();//DB연결변수인 con에 DB에서 얻어온 파일 하나를 저장한다.
-			 /* getConnection()을 하면 connection객체가 있을경우 그객체를 사용하고 
-			 	없을경우 새로운 connection객체를 만들어 사용.
-				freeConnection()은 다쓴 connection객체를 vector로 돌려주는 역할을 한다.*/ 
-			sql="select * from member";//SQL문/ 멤버안의 모든것을 선택한다.
-			pstmt=con.prepareStatement(sql);//변수pstmt안에 sql문을 이용하여 DB의 값을 변경한것을 저장한다
-			rs=pstmt.executeQuery();
-				/* 명령에대한봔환값을가지는 변수명 rs안에 
-			       DB의 변경된 값이 들어있는pstmt의 값을 저장   */
-			while(rs.next()){//순차적으로접근?
-				MemberBean memberbean=new MemberBean();//MembertBean을 사용하기위해 객체생성 /변수명:memberbean
-				memberbean.setId(rs.getString("id"));
-				memberbean.setPasswd(rs.getString("passwd"));
-				memberbean.setName(rs.getString("name"));
-				memberbean.setPost(rs.getString("post"));
-				memberbean.setAddr1(rs.getString("addr1"));
-				memberbean.setAddr2(rs.getString("addr2"));
-				memberbean.setPhone(rs.getString("phone"));
-				memberbean.setCall(rs.getString("call"));
-				memberbean.setEmail(rs.getString("email"));
-				memberbean.setMem_lv(rs.getInt("mem_lv"));
-				memberlist.add(memberbean);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			try {
-				if(rs != null) rs.close();
-				if(con != null) con.close();
-				if(pstmt != null) pstmt.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		return memberlist;
-	}
-	
-	/** Member userCheck **/
+	/** Member userCheck(로그인사용자확인메소드) **/
 	public int userCheck(String id, String passwd){
 		Connection con=null;//데이터베이스 연결변수
 		PreparedStatement pstmt=null;//사용자입력값을폼에서받아 DB에저장할수있는 변수
@@ -175,6 +123,43 @@ public class MemberDAO {
 		}
 		return check;
 	}
+	
+	/** insertMember(회원가입) **/
+	public int insertMember(MemberBean memberBean){
+		Connection con=null;//데이터베이스 연결변수
+		PreparedStatement pstmt=null;//사용자입력값을폼에서받아 DB에저장할수있는 변수
+		String sql="";//DB에 명형할 쿼리문 변수
+		int check=0;
+		try {
+			//1.드라이버로드//2.DB연결
+			con=getConnection();
+			sql="insert into member(id,passwd,name,post,addr1,addr2,phone,call,email) values(?,?,?,?,?,?,?,?,?)";
+			pstmt=con.prepareStatement(sql);//변수pstmt안에 sql문을 이용하여 DB의 값을 변경한것을 저장한다
+			pstmt.setString(1, memberBean.getId());
+			pstmt.setString(2, memberBean.getPasswd());
+			pstmt.setString(3, memberBean.getName());
+			pstmt.setString(4, memberBean.getPost());
+			pstmt.setString(5, memberBean.getAddr1());
+			pstmt.setString(6, memberBean.getAddr2());
+			pstmt.setString(7, memberBean.getPhone());
+			pstmt.setString(8, memberBean.getCall());
+			pstmt.setString(9, memberBean.getEmail());
+			check=pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			//JDBC자원닫기
+			try {
+				if(pstmt != null) pstmt.close();
+				if(con != null) con.close();
+ 			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return check;
+	}
+	
+	
 	/*
 	*//** Member chkId **//*
 	public int chkId(String id){
@@ -218,5 +203,59 @@ public class MemberDAO {
 	}
 	*/
 	
+	/*public List<MemberBean> getMemberList(){//MemberBean의 순차적으로 저장되어있는 값
+		Connection con=null;//데이터베이스 연결 변수 선언
+		PreparedStatement pstmt=null;//DB에 사용자의 입력내용으로 수정(저장)하기위해
+		// PreparedStatement : 실행시마다 가변적인 변수의 내용을 DB에 삽입하기 위해 사용하는 방법으로 
+		// 키보드로 입력받거나 awt의 각 폼으로 부터 입력되는 내용을 처리하여 DB에 입력할 수 있는 방식
+		String sql="";//PreparedStatement 객체에서 사용 SQL문을 만들기위해 초기화
+		ResultSet rs=null;//DB에 쿼리로 요청한 값을 저장할때 쓰인다.//DB에서 가져온값이 들어감
+			 executeQuery로 명령하면 ResultSet이라는 객체를 돌려준다.
+			  executeQuery : DB에 명령
+			  ResultSet : 명령에 대한 반환값. 반환해주는 값은 아래에설명
+			  ==>
+			  executeQuery("Select * from tableName"); 이라고 보냈다면
+			  tableName 라는 테이블에서 값을 가져옴. 이 가져온 것이 ResultSet
+			  간단히 DB에 명령을 내리는 것. 그러면 그 명령에 따라서 DB가 작동하고, 작동한 결과 값을 돌려준다는 말이다. 
+		List<MemberBean> memberlist=new ArrayList<>();//제네릭을 사용하기위해 객체생성. 변수명:memberlist
+		
+		//예외처리
+		try {
+			con=getConnection();//DB연결변수인 con에 DB에서 얻어온 파일 하나를 저장한다.
+			  getConnection()을 하면 connection객체가 있을경우 그객체를 사용하고 
+			 	없을경우 새로운 connection객체를 만들어 사용.
+				freeConnection()은 다쓴 connection객체를 vector로 돌려주는 역할을 한다. 
+			sql="select * from member";//SQL문/ 멤버안의 모든것을 선택한다.
+			pstmt=con.prepareStatement(sql);//변수pstmt안에 sql문을 이용하여 DB의 값을 변경한것을 저장한다
+			rs=pstmt.executeQuery();
+				 명령에대한봔환값을가지는 변수명 rs안에 
+			       DB의 변경된 값이 들어있는pstmt의 값을 저장   
+			while(rs.next()){//순차적으로접근?
+				MemberBean memberbean=new MemberBean();//MembertBean을 사용하기위해 객체생성 /변수명:memberbean
+				memberbean.setId(rs.getString("id"));
+				memberbean.setPasswd(rs.getString("passwd"));
+				memberbean.setName(rs.getString("name"));
+				memberbean.setPost(rs.getString("post"));
+				memberbean.setAddr1(rs.getString("addr1"));
+				memberbean.setAddr2(rs.getString("addr2"));
+				memberbean.setPhone(rs.getString("phone"));
+				memberbean.setCall(rs.getString("call"));
+				memberbean.setEmail(rs.getString("email"));
+				memberbean.setMem_lv(rs.getInt("mem_lv"));
+				memberlist.add(memberbean);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(con != null) con.close();
+				if(pstmt != null) pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return memberlist;
+	}*/
 
 }

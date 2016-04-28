@@ -19,7 +19,7 @@
 		<!-- >form -->
 		<!-- >login_Wrap -->
 		<div class="login_Wrap">
-		<form action="./LoginAction.do" method="post" name="fr" onsubmit="submit check()">
+		<form action="./LoginAction.do" method="post" name="fr">
 		<!-- onSubmit은 form 안에 있는 내용이 action에 적어준 주소로 넘어가기 직전 
 			 submit버튼을 부르면 onsubmit이 실행되어 
 			 check함수가 실행되고, check함수의 return값이 true일 경우에만 폼이 전송됨.
