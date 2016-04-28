@@ -26,12 +26,27 @@ To start this server you will need to stop the other process or change the port 
 
 시작 - >  Cmd ->   netstat -a -o   명령어 입력 후  같은 PID가 있는 경우 해당 PID를 KILL해 주면 된다.<br><br>
 
-<img src="./TOMCAT3.jpg"><br><br>
+<img src="./img/TOMCAT3.jpg"><br><br>
 
 명령어는  taskkill  /f  /pid id명  입력 <br>
 프로세스 종료후 eclipse로 가서 다시 서버 재시작 해보면 된다. <br>
 서버 재 시작 해도 같은 오류가 나는 경우..<br> 
-그냥 컴터 종료 후  재부팅 하면 해결된다. <br><br>
+그냥 컴터 종료 후  재부팅 하면 해결된다. <br><br><br>
+
+
+========================================================<br><br><br>
+
+
+에러 : <br>
+<img src="./img/TOMCAT1_1.jpg"><br><br>
+
+해결 :<br>
+<img src="./img/TOMCAT1_2.jpg"><br>
+<img src="./img/TOMCAT1_3.jpg"><br>
+간단한 방법으로 톰캣을 더블클릭 후 Overview 탭에서 포트번호 변경해주기.<br><br>
+
+또는 cmd창에서 taskkill<br><br><br>
+
 
 </body>
 </html>
