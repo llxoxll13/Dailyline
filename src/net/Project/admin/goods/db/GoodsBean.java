@@ -2,31 +2,44 @@ package net.Project.admin.goods.db;
 
 import java.sql.Timestamp;
 
-/*
-01.[DB] META-INF/context.xml파일에 DB과련하여 수정
-02.[DB] Java Resources/src/net.Project.admin.goods.db/GoodsBean.java파일생성
-*/
 public class GoodsBean {
-	private int goodsNo;
-	private String goodsNm;
+	private int idx;
+	private int goods_no;
+	private int ca_no;
+	private String goods_name;
 	private int price;
-	private int goodsCate;
-	private int goodsAmt;
-	private String goodsImg;
-	private Timestamp regdate;
+	private int goods_amt;
+	private String goods_comment;
+	private String goods_color;
+	private String goods_size;
+	private String img_file1;
+	private String img_file2;
+	private Timestamp reg_date;
 	private Timestamp update_date;
 	
-	public int getGoodsNo() {
-		return goodsNo;
+	public int getIdx() {
+		return idx;
 	}
-	public void setGoodsNo(int goodsNo) {
-		this.goodsNo = goodsNo;
+	public void setIdx(int idx) {
+		this.idx = idx;
 	}
-	public String getGoodsNm() {
-		return goodsNm;
+	public int getGoods_no() {
+		return goods_no;
 	}
-	public void setGoodsNm(String goodsNm) {
-		this.goodsNm = goodsNm;
+	public void setGoods_no(int goods_no) {
+		this.goods_no = goods_no;
+	}
+	public int getCa_no() {
+		return ca_no;
+	}
+	public void setCa_no(int ca_no) {
+		this.ca_no = ca_no;
+	}
+	public String getGoods_name() {
+		return goods_name;
+	}
+	public void setGoods_name(String goods_name) {
+		this.goods_name = goods_name;
 	}
 	public int getPrice() {
 		return price;
@@ -34,29 +47,47 @@ public class GoodsBean {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public int getGoodsCate() {
-		return goodsCate;
+	public int getGoods_amt() {
+		return goods_amt;
 	}
-	public void setGoodsCate(int goodsCate) {
-		this.goodsCate = goodsCate;
+	public void setGoods_amt(int goods_amt) {
+		this.goods_amt = goods_amt;
 	}
-	public int getGoodsAmt() {
-		return goodsAmt;
+	public String getGoods_comment() {
+		return goods_comment;
 	}
-	public void setGoodsAmt(int goodsAmt) {
-		this.goodsAmt = goodsAmt;
+	public void setGoods_comment(String goods_comment) {
+		this.goods_comment = goods_comment;
 	}
-	public String getGoodsImg() {
-		return goodsImg;
+	public String getGoods_color() {
+		return goods_color;
 	}
-	public void setGoodsImg(String goodsImg) {
-		this.goodsImg = goodsImg;
+	public void setGoods_color(String goods_color) {
+		this.goods_color = goods_color;
 	}
-	public Timestamp getRegdate() {
-		return regdate;
+	public String getGoods_size() {
+		return goods_size;
 	}
-	public void setRegdate(Timestamp regdate) {
-		this.regdate = regdate;
+	public void setGoods_size(String goods_size) {
+		this.goods_size = goods_size;
+	}
+	public String getImg_file1() {
+		return img_file1;
+	}
+	public void setImg_file1(String img_file1) {
+		this.img_file1 = img_file1;
+	}
+	public String getImg_file2() {
+		return img_file2;
+	}
+	public void setImg_file2(String img_file2) {
+		this.img_file2 = img_file2;
+	}
+	public Timestamp getReg_date() {
+		return reg_date;
+	}
+	public void setReg_date(Timestamp regdate) {
+		this.reg_date = regdate;
 	}
 	public Timestamp getUpdate_date() {
 		return update_date;
@@ -64,4 +95,5 @@ public class GoodsBean {
 	public void setUpdate_date(Timestamp update_date) {
 		this.update_date = update_date;
 	}
+	
 }

@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+
+/* <-- 제품 리스트 */ 
+.contents .goods_list .tbl_goods { border-collapse:collapse; }
+.contents .goods_list .tbl_goods tr:last-child{ border-bottom:1px #999 solid; }
+.contents .goods_list .tbl_goods th, td{ border-right:1px #999 solid; }
+.contents .goods_list .tbl_goods th:last-child, td:last-child{ border-right:none; }
+.contents .goods_list .tbl_goods th { border-bottom:1px #999 solid; background: #f8f8f8; padding:5px; }
+.contents .tbl_goods td{ text-align:center; padding:5px; }
+.contents .btn_area{ float:right; }
+/* 제품 리스트 --> */
+
+/* <-- 페이징 */
+.contents .pager { text-align:center; margin-top:20px; }
+.curr { font-weight:bold !important; }
+/* 페이징 --> */
+
+/* <-- 제품 상세 */ 
+.contents .goods_detail table{ border-collapse:collapse; }
+.contents .goods_detail table th{ border-right:1px #999 solid; border-bottom:1px #999 solid; background: #f8f8f8; }
+.contents .goods_detail table td{ text-align:center; padding:5px; border-bottom:1px #999 solid; }
+
+.contents .goods_detail .detail_btn{ text-align:center; margin-top:20px; }
+/* 제품 상세 --> */

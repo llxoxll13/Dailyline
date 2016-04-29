@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+
+.conWrap { width: 1170px; margin: 0 auto; margin-top: 40px; margin-bottom: 50px; min-height:200px;}
+.contitle { border: 1px solid #eaeaea; border-bottom: 2px solid #eaeaea; margin: 0 auto; padding-top: 7px; height: 25px; margin-bottom: 50px; width: 150px; color: #000; text-align: center; text-transform: upper; line-height: 18px;}
+.contitle h2 {font-family: 'Open Sans',sans-serif,arial; font-size: 11px; font-weight: normal;}
+.contable {margin-bottom : 20px;}
+.contable table{ border-spacing: 0; border: 0; border-collapse: collapse; width: 100%;}
+
+.contable table tr { background-color: #FFFFFF; color: #555555;}
+.contable table tr:nth-child(1){ color: #333; font-size: 11px; margin: 0 0 20px;}
+.contable table tr th{ padding: 9px 0 7px; border-top: 1px solid #e8e8e8; border-bottom: 1px solid #e8e8e8; font-weight: normal; font-size: 11px; color: #5b5b5b; background: #f9f9f9;}
+.contable table tr th:nth-child(1){width:80px;}
+.contable table tr th:nth-child(2){}
+.contable table tr th:nth-child(3){width:150px;}
+.contable table tr th:nth-child(4){width:150px;}
+
+.contable table tr td {padding: 10px 3px 9px; border-bottom: 1px dotted #ccc; text-align: center; vertical-align: middle;}
+
+.boardWrite {float : right;}
+.boardWrite a {display: inline-block; width: 85px; height: 24px; line-height: 24px; background: #fff; color: #333; text-transform: uppercase; text-align: center; border: 2px #222 solid; letter-spacing: 0.07em;}
+
+.boardPage{ padding :30px 0 40px 0; text-align: center;}
+.boardPage p {display: inline-block; vertical-align: top;}
+.boardPage img { vertical-align: top;}
+.boardPage ul { display: inline-block; margin: 0; font-size: 0; line-height: 0; vertical-align: top;}
+.boardPage ul li { display: inline-block; margin: 0; font-size: 11px; color: #757575; vertical-align: top; background: url("http://img.echosting.cafe24.com/skin/base_ko_KR/product/bg_result_type.gif") no-repeat 0 30%; background-size: 1px 8px;}
+.boardPage ul li:first-child { background: none;}
+.boardPage ul li a{ display: block; margin: 0 10px 0 0; padding: 0 0 0 10px;  color: #999; line-height: 14px; font-family: Dotum,돋움,arial;}

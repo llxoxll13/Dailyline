@@ -1,0 +1,54 @@
+@CHARSET "UTF-8";
+ 
+
+/* ============리셋 css 시작============ */
+* {margin: 0; padding:0}
+body {font-size: 12px; color: #555555; line-height: 16px; font-family: 굴림;}
+div {display: block;}
+ul, ol {list-style: none;}
+li {vertical-align: top;}
+li img {vertical-align: top;}
+form {display: block; margin-top: 0em; margin: 0 ;padding: 0;}
+button { border: 0 none; background-color: transparent; cursor: pointer;}
+button img, legend { display: none;}
+select {vertical-align: middle;}
+option {font-weight: normal; display: block; white-space: pre; min-height: 1.2em; padding: 0px 2px 1px;}
+input {height: 13px; border: 1px solid #D0C3A9; padding: 3px 12px 0px; vertical-align: middle;}
+input[type=radio], input[type=checkbox] {border: none; padding: 0;}
+input, select, textarea { font-family: 돋움; font-size: 11px; color: #555555;}
+map {display: inline;}
+area {display: inline; cursor: pointer;}
+/* tbody {display: table-row-group; vertical-align: middle; border-color: inherit;} */
+/* th {font: normal 11px 돋움; background: #f8f8f8; border-bottom: 1px solid #e1e1e1; padding: 12px 5px 10px 5px; text-align: center; color: #333;} */
+/* tr {display: table-row; vertical-align: inherit; border-color: inherit;} */
+dl {display: block;}
+col {display: table-column;}
+colgroup {display: table-column-group;}
+strong, b { font-weight: bold;}
+em, address { font-style: normal;}
+img {border: 0; vertical-align: top;}
+img, fieldset { border: 0;}
+a { text-decoration: none;}
+a:link { text-decoration: none; color: #555555;}
+a:visited { text-decoration: none; color: #555555;}
+a:hover { text-decoration: underline; color: #999999;}
+
+/* 한줄이 너무 길면 ...찍는 css */
+.ellipsis{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;	
+}
+/* ============리셋 css 끝============ */
+
+.header_wrap{ width:100%; height:150px; margin-top:20px; }
+.header_wrap .header{ width:960px; margin:0 auto; }
+.header_wrap .header a{ display:block; float:left; }
+.header_wrap .header .header_title{ float:left; font-size:40px; margin:40px 70px; }	
+.contents_wrap{ width:100%; hight:100%; }
+.contents_wrap .contents_area{ width:960px; margin:0 auto; }
+.contents_wrap .contents_area .side{ float:left; border:1px solid; width:150px; margin-right:20px; }
+.contents_wrap .contents_area .side ul:first-child li{ border-top:0px !important; }
+.contents_wrap .contents_area .side ul li{ padding:10px 0 10px 10px; }
+.contents_wrap .contents_area .side ul li:first-child{ border-top:1px solid; border-bottom:1px solid; background-color:#F9F9F9; }
+.contents_wrap .contents_area .contents{ float:left; }
