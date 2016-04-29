@@ -23,7 +23,8 @@ public class MemberDAO {
 	//DB연결 메소드(Connection 객체 가져오는 메소드) getConnection()
 		Connection con=null;//데이터베이스 연결 변수 선언
 		Context init=new InitialContext();//탐색기를 연다
-		DataSource ds=(DataSource) init.lookup("java:comp/env/jdbc/ocrl");
+		
+		DataSource ds=(DataSource) init.lookup("java:comp/env/jdbc/orcl");
 		//DataSource ds=(DataSource) init.lookup("jdbc:oracle:thin:@localhost:1521/orcl");// 커넥션 //그안에서 파일하나를 얻어온다
 		//DataSource ds=(DataSource) init.lookup("java:comp/env/jdbc/ora11g");
 		con=ds.getConnection();//데이터베이스에 연결할 변수 안에 커넥션(DB)안에서 얻어온 파일하나를 넣는다.
