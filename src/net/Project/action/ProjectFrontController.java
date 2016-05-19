@@ -12,6 +12,8 @@ import net.Member.action.JoinAction;
 import net.Member.action.LoginAction;
 import net.Project.action.ActionForward;
 import net.Project.admin.goods.action.GoodsListAction;
+import net.Project.board.action.boardQnaList;
+import net.Project.board.action.boardReviewList;
 //01.member/join.jsp파일생성
 //02.src/net.Member.action패키지생성/ActionForward.java클래스생성
 //03.src/net.Member.action안에/Action.java인터페이스생성
@@ -58,9 +60,45 @@ public class ProjectFrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("/main/main.jsp");
 			forward.setRedirect(false);
+		}	
+		
+		/*주문 부분*/
+		else if(command.equals("/order.do")){
+			forward = new ActionForward();
+			forward.setPath("./order/orderForm.jsp");
+			forward.setRedirect(false);
+		}
+		else if(command.equals("/order_result.do")){
+			forward = new ActionForward();
+			forward.setPath("./order/orderResult.jsp");
+			forward.setRedirect(false);
+		}
+		
+		/*review*/
+		else if(command.equals("/review.do")){
+			action = new boardReviewList();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		/*board QNA*/
+		else if(command.equals("/boardQna.do")){
+			action = new boardQnaList();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 			
 		/*join*/	
-		} else if(command.equals("/join.do")){//=-:대상의주소값을비교 , .equals:대상의내용자체를비교
+		else if(command.equals("/join.do")){//=-:대상의주소값을비교 , .equals:대상의내용자체를비교
 		// command에 들어가있는 /memberjoin.me라는 주소값이 join.do와 같으면
 			forward=new ActionForward();
 			//새로운 ActionForward()객체를 생성

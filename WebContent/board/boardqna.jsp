@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core'%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<!-- **fn** JSTL functions은 JSTL에서 제공하는 각종 함수를 사용해서 문자열이나, 컬렉션들을 처리한다.
+	  		fn태그는 단독으로 사용할 수 없고 EL 표현식 내에서 사용한다. -->
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 	<jsp:include page="../main/header.jsp"/>
@@ -23,8 +25,11 @@
 					<th>date</th>
 				</tr>
 				
-				
-				<c:if test="${fn:length(qnaList) gt 0 }">
+				<!-- int length(Object item):item이 배열이나 컬렉션이면 요소의 개수를, 문자열이면 문자의 개수를 리턴 한다.
+					<c:set var="texts" value="${fn:split('Hi My name is waldo', ' ')}"/>
+						${fn:length(texts)} // 5
+						${fn:length("123456")} // 6 -->
+				<c:if test="${fn:length(qnaList) gt 0 }"><!-- gt == > -->
 					<c:forEach items="${qnaList }" var="item">
 						<tr>
 							<td>${item.idx }</td>

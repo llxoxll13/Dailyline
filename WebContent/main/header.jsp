@@ -19,12 +19,15 @@
 			<div id ="h1_in1">
 				<ul>
 				<c:choose>
+				<!-- c:choose:switch와 비슷한 역할. 조건문의 시작을 알림 -->
 					<c:when test="${empty sessionScop.id }">
+					<!-- c:when태그는 조건에 따라 여러개가 사용될 수 있다. -->
 						<li><a href ="login.do">LOGIN</a></li>
 						<li><a href ="join.do">JOIN US</a></li>
 						<li><a href ="#">ORDER</a></li>
 					</c:when>
 					<c:otherwise>
+					<!-- c:otherwise태그는 c:when태그의 조건에 모두 만족하지 않을 경우 실행된다 -->
 						<li><a href ="#">LOGOUT</a></li>
 						<li><a href ="#">ORDER</a></li>
 					</c:otherwise>
@@ -72,8 +75,8 @@
 					<li><a href="#">FREE</a></li>
 					<li><a href="#">NOTICE</a></li>
 					<li><a href="#">EVENT</a></li>
-					<li><a href="#">Q&A</a></li>
-					<li><a href="#">REVIEW</a></li>
+					<li><a href="./boardQna.do">Q&A</a></li>
+					<li><a href="review.do">REVIEW</a></li>
 				</ul>
 			</div>
 		</div>
