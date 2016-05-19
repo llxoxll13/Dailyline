@@ -1,0 +1,48 @@
+@CHARSET "UTF-8";
+
+#mainWrap{margin-top: 40px; margin-bottom: 0px; /* border: 1px solid blue; */}
+.sliderWrap{min-height: 500px; margin: 0px; border: none; /* border: 1px solid red; */}
+body{font: 8px "Segoe UI", "Lato", Corbel, arial, Verdana, 돋움, Dotum, 나눔고딕, NanumGothic, "맑은 고딕", "Malgun Gothic", AppleGothic, Helvetica, sans-serif}
+img{border: none; vertical-align: middle;}
+th,td{border: 0; vertical-align: top;}
+
+/* >titleArea */
+.titleArea{width: 150px; height: 32px; margin: 0 auto; text-align: center; line-height: 31px; color: #000;
+	border: 1px solid #eaeaea; padding-top: 0px; border-bottom: 2px solid #eaeaea;}
+.titleArea span{font-family: "Open Sans",sans-serif,arial; font-size: 11px; font-weight: normal;}
+/* <titleArea */
+
+/* >review_Wrap */
+.review_Wrap{width: 1170px; margin: 0 auto; overflow: hidden; margin-top: 50px; font-size: 11px; /* border: 1px solid red; */}
+table{border-spacing: 0; border-collapse: collapse;}
+table tr{background: #FFFFFF; color: #555555;/* border: 1px solid red; */}
+table td{font-size: 10px; padding: 10px 3px 9px; border-bottom: 1px dotted #ccc; text-align: center; vertical-align: middle; background: #FFFFFF; color: #555555;}
+table th{padding: 9px 0 7px; border-top: 1px solid #e8e8e8; border-bottom: 1px solid #e8e8e8; font-weight: normal; font-size: 11px; color: #5b5b5b; background: #f9f9f9;}
+
+/* >thead */
+.number{width: 80px; /* border: 1px solid red; */}
+.thumb{width: 76px; overflow: hidden; border-right: 0px; /* border: 1px solid blue; */}
+.item{width: 160px; text-align: left; /* border: 1px solid red; */}
+.category{width: 104px; /* border: 1px solid blue; */}
+.subject{ /* border: 1px solid red; */}
+.writer{width: 100px; /* border: 1px solid blue; */}
+.date{width: 100px; /* border: 1px solid red; */}
+.hit{width: 45px; /* border: 1px solid blue; */}
+.recom{width: 45px; display: none; /* border: 1px solid red; */}
+.grade{width: 60px; display: none; /* border: 1px solid blue; */}
+/* <thead */
+
+/* >tbody1 */
+.tbody1 .subject{font-size: 11px; text-align: left; word-break:break-all; font-weight: bold;}
+.tbody1 img{margin: 0 1px;}
+/* <tbody1 */
+
+/* >tbody2 */
+.tbody2 {font-size: 11px; color: #333;}
+/* <tbody2 */
+
+
+/* >tfoot */
+/* <tfoot */
+
+/* <review_Wrap */
